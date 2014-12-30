@@ -42,11 +42,12 @@
 
 .user-sidebar
   +span(4)
+  padding: 0 20px
 .user-title-card
   +clearfix
   margin-top: -80px
   position: relative
-  height: 150px
+  height: 155px
 .user-title-card-avatar
   width: 150px
   position: absolute
@@ -55,13 +56,13 @@
   img
     border: 5px solid #fff
 .user-title-card-info
-  width: 300px
   margin-left: 125px
   height: 100px
   margin-top: 25px
   background-color: $c-user-sidebar-bg
   text-align: center
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .user-info
     padding-top: 18px
     height: 68px
@@ -91,6 +92,7 @@
   background-color: $c-user-sidebar-bg
   padding-top: 10px
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   height: 80px
   text-align: center
   .friends, .hits, .followers, .saves
@@ -114,6 +116,7 @@
   border-top: 5px solid $c-user-level-border
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .title
     color: $c-user-level-title
   .more
@@ -127,6 +130,7 @@
   border-top: 5px solid $c-user-location-border
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .title
     color: $c-user-location-title
   .more
@@ -143,6 +147,7 @@
   border-top: 5px solid $c-user-group-border
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .title
     color: $c-user-group-title
   .more
@@ -159,6 +164,7 @@
   border-top: 5px solid $c-user-visitor-border
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .title
     color: $c-user-visitor-title
   .more
@@ -185,11 +191,12 @@
 
 .user-main
   +span(8)
-  padding: 0 50px
+  padding: 0 25px
 
 .user-content-tabs
   +clearfix
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   margin-top: -13px
   background-color: $c-user-sidebar-bg
   ul
@@ -213,6 +220,7 @@
 
 .user-status-message-wrapper
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   background-color: $c-user-sidebar-bg
   margin-top: 40px
   padding: 20px
@@ -229,6 +237,7 @@
   margin-top: 30px
 .user-diary-wrapper
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   position: relative
   padding: 20px
   margin-bottom: 20px
