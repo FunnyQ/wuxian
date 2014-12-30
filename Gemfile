@@ -66,10 +66,13 @@ group :development, :test do
 end
 
 gem 'devise'
+
 gem 'sprockets-rails', '3.0.0.beta1'
 gem 'sass-rails', '5.0.0.beta1'
 gem 'compass-rails', '2.0.0'
 gem 'bower-rails'
+gem "font-awesome-rails"
+
 gem 'modernizr-rails'
 gem 'carrierwave'
 gem 'mini_magick'
