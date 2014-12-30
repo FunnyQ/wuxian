@@ -10,7 +10,7 @@
     +sassy-button("flat", 0, $fz-s, $c-album-new)
     padding: 10px 20px
 
-.hot-albums-list, .all-albums
+.hot-albums-list, .all-albums, .all-pics
   +clearfix
   margin-top: 20px
   ul
@@ -22,11 +22,11 @@
     padding-bottom: 5px
     font-size: $fz-xl
     border-bottom: 1px solid #555
-  .album-unit
+  .album-unit, .photo-unit
     +span(3)
     padding: 10px
     text-align: center
-    a
+    .album-wrapper
       display: block
       @extend %user-sidebar-block-shadow
       @extend %block-hover-effect
@@ -42,5 +42,9 @@
       width: 100%
       background-color: #555
       height: 170px
-
+    .photo-frame
+      border: 8px solid #fff
+      +box-shadow(0 0 2px #555)
+      &:hover
+        +box-shadow(0 0 10px #555)
 

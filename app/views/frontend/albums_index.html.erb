@@ -37,11 +37,11 @@
           <ul>
             <% 4.times.each do %>
               <li class="album-unit">
-                <a href="#">
+                <%= link_to user_album_show_path, :class => "album-wrapper" do %>
                   <span class="album-cover"></span>
                   <h4>相簿標題</h4>
                   <span><i class="fa fa-camera"></i> <%= rand(99) %> 張照片</span>
-                </a>
+                <% end %>
               </li>
             <% end %>
           </ul>
@@ -49,16 +49,16 @@
 
         <!-- 所有相簿列表 -->
         <div class="all-albums">
-          <h3 class="title"><i class="fa fa-photo"></i> 所有相簿</h3>
+          <h3 class="title"><i class="fa fa-book"></i> 所有相簿</h3>
 
           <ul>
             <% 24.times.each do %>
               <li class="album-unit">
-                <a href="#">
+                <%= link_to user_album_show_path, :class => "album-wrapper" do %>
                   <span class="album-cover"></span>
                   <h4>相簿標題</h4>
                   <span><i class="fa fa-camera"></i> <%= rand(99) %> 張照片</span>
-                </a>
+                <% end %>
               </li>
             <% end %>
           </ul>

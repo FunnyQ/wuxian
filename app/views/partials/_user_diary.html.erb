@@ -1,25 +1,30 @@
 <!-- 單則日記 -->
 <div class="user-diary-wrapper">
 
-  <!-- 標題 -->
-  <h4 class="user-diary-title">《真愛繞圈圈》</h4>
-
+  <!-- 推爆等級 -->
   <div class="user-diary-baku gold-baku">
     <div class="baku">爆</div>
     <span class="number"><%= rand(999) %></span>
   </div>
 
-  <!-- 附加訊息 -->
-  <div class="user-diary-subinfo">
-    <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
-  </div>
+  <!-- 標題與其他訊息 -->
+  <div class="user-diary-info-wrapper">
 
-  <!-- 標籤 -->
-  <div class="user-diary-tags">
-    <ul>
-      <li><i class="fa fa-tag"></i>最新網誌</li>
-      <li><i class="fa fa-tag"></i>影評</li>
-    </ul>
+    <!-- 標題 -->
+    <h4 class="user-diary-title">《真愛繞圈圈》</h4>
+
+    <!-- 附加訊息 -->
+    <div class="user-diary-subinfo">
+      <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
+    </div>
+
+    <!-- 標籤 -->
+    <div class="user-diary-tags">
+      <ul>
+        <li><i class="fa fa-tag"></i>最新網誌</li>
+        <li><i class="fa fa-tag"></i>影評</li>
+      </ul>
+    </div>
   </div>
 
   <div class="user-diary-content">

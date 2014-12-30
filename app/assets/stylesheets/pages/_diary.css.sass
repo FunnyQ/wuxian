@@ -1,6 +1,9 @@
 .user-diary-latest-list
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
+  .title-wrapper
+    border-bottom: 2px solid $c-user-diary-latest-list-title
   .title
     color: $c-user-diary-latest-list-title
     padding-bottom: 5px
@@ -12,6 +15,8 @@
     padding-top: 10px
     border-top: 1px solid $c-user-diart-latest-list-divider
     color: #000
+    &:first-child
+      border: none
   .diary-cover-img
     +span(3)
   .diary-title
@@ -24,7 +29,10 @@
 .user-diary-comments-list
   @extend %user-sidebar-block
   @extend %user-sidebar-block-shadow
+  @extend %block-hover-effect
   .title
     color: $c-user-diary-comments-list-title
+  .title-wrapper
+    border-bottom: 2px solid $c-user-diary-comments-list-title
 
 
