@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # 依網址是否符合加入 active class
   def nav_link(link_text, link_path)
     class_name = current_page?(link_path) ? 'active' : ''
 

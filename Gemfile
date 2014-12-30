@@ -79,3 +79,5 @@ gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'auto-facebook', github: 'FunnyQ/auto-facebook'
+
+gem 'settingslogic'

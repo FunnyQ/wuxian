@@ -60,3 +60,5 @@ build/
 /_yardoc/
 /doc/
 /rdoc/
+
+/config/application.yml
