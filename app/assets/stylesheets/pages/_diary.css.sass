@@ -1,0 +1,30 @@
+.user-diary-latest-list
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-diary-latest-list-title
+    padding-bottom: 5px
+    margin-bottom: 10px
+  .diary-unit
+    +clearfix
+    display: block
+    margin-top: 10px
+    padding-top: 10px
+    border-top: 1px solid $c-user-diart-latest-list-divider
+    color: #000
+  .diary-cover-img
+    +span(3)
+  .diary-title
+    +span(9)
+    padding: 0 10px
+    h4
+      font-size: $fz-m
+
+
+.user-diary-comments-list
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-diary-comments-list-title
+
+

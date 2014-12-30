@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'frontend#index'
-  get '/users/tim_cook/diaries' => 'frontend#diaries_index'
+  get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
+  get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

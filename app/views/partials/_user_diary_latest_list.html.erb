@@ -1,0 +1,15 @@
+<div class="user-diary-latest-list">
+  <h3 class="title">最新網誌</h3>
+  <div class="user-diary-list">
+    <% 4.times.each do |d| %>
+      <%= link_to '#', :class => "diary-unit" do %>
+        <div class="diary-cover-img">
+          <%= image_tag 'http://placehold.it/150x150', :class => "img-responsive" %>
+        </div>
+        <div class="diary-title">
+          <h4>【影評】《Stand by me 哆啦A夢》Stand by Me Doraemon</h4>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

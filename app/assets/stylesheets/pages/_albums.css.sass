@@ -1,0 +1,46 @@
+.user-albums-wrapper
+  +span(12)
+  padding: 0 25px
+  margin-top: 20px
+
+.album-create-options
+  text-align: right
+  margin-bottom: 50px
+  .album-new
+    +sassy-button("flat", 0, $fz-s, $c-album-new)
+    padding: 10px 20px
+
+.hot-albums-list, .all-albums
+  +clearfix
+  margin-top: 20px
+  ul
+    margin: 0
+    padding: 0
+  li
+    list-style: none
+  .title
+    padding-bottom: 5px
+    font-size: $fz-xl
+    border-bottom: 1px solid #555
+  .album-unit
+    +span(3)
+    padding: 10px
+    text-align: center
+    a
+      display: block
+      @extend %user-sidebar-block-shadow
+      @extend %block-hover-effect
+      width: 100%
+      height: 250px
+      padding: 15px
+      color: $c-album-title
+      background-color: #FFF
+      &:hover
+        text-decoration: none
+    .album-cover
+      display: block
+      width: 100%
+      background-color: #555
+      height: 170px
+
+
