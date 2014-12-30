@@ -1,0 +1,312 @@
+// *************************************
+//
+//   pages/index
+//
+//
+// *************************************
+
+// 使用者封面圖片
+.user-cover-image
+  height: 350px
+  +background-size(cover)
+  background-color: #ddd
+
+// 新聞跑馬燈
+.hot-news-container
+  +clearfix
+  background-color: $c-hot-news-bg
+.hot-news-title
+  +span(3)
+  height: 50px
+  padding-top: 10px
+  text-align: center
+  font-size: $fz-l
+  color: $c-hot-news-title-text
+  background-color: $c-hot-news-title-bg
+.hot-news-content
+  +span(9)
+  padding-top: 12px
+  ul
+    margin: 0
+    padding: 0
+  li
+    float: left
+    list-style: none
+    padding-right: 15px
+  a
+    margin-left: 5px
+    color: $c-hot-news-text
+
+
+.user-main-content
+
+.user-sidebar
+  +span(4)
+.user-title-card
+  +clearfix
+  margin-top: -80px
+  position: relative
+  height: 150px
+.user-title-card-avatar
+  width: 150px
+  position: absolute
+  +border-radius(50%)
+  +box-shadow(0 0 5px #000)
+  img
+    border: 5px solid #fff
+.user-title-card-info
+  width: 300px
+  margin-left: 125px
+  height: 100px
+  margin-top: 25px
+  background-color: $c-user-sidebar-bg
+  text-align: center
+  @extend %user-sidebar-block-shadow
+  .user-info
+    padding-top: 18px
+    height: 68px
+      color: #000
+    .name
+      margin: 0
+      padding: 0
+      display: inline
+      font-size: $fz-xl
+      color: $c-user-title-card-name
+    .level
+      font-size: $fz-s
+      padding-left: 10px
+      color: $c-user-title-card-level
+      font-weight: bold
+  .user-social-btns
+    bottom: 0
+    .follow
+      +span(6)
+      +sassy-button("flat", 0, $fz-m, $c-user-title-card-follow)
+    .present
+      +span(6)
+      +sassy-button("flat", 0, $fz-m, $c-user-title-card-present)
+
+.user-status-info
+  margin-top: 25px
+  background-color: $c-user-sidebar-bg
+  padding-top: 10px
+  @extend %user-sidebar-block-shadow
+  height: 80px
+  text-align: center
+  .friends, .hits, .followers, .saves
+    +span(3)
+    .label
+      color: #000
+      display: block
+      margin: 8px 0
+      font-weight: bold
+  .friends
+    border-right: 1px solid $c-user-status-divider
+    .number
+      color: $c-user-status-friends
+  .followers
+    border-left: 1px solid $c-user-status-divider
+    border-right: 1px solid $c-user-status-divider
+    .number
+      color: $c-user-status-followers
+
+.user-level-info
+  border-top: 5px solid $c-user-level-border
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-level-title
+  .more
+    color: $c-user-level-title
+  .level-list
+    @extend %user-sidebar-list
+    li
+      +span(6)
+
+.user-location-info
+  border-top: 5px solid $c-user-location-border
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-location-title
+  .more
+    color: $c-user-location-title
+  .location-list
+    @extend %user-sidebar-list
+    li
+      +span(12)
+      border-bottom: 1px solid $c-sidebar-list-border
+    li:last-child
+      border: none
+
+.user-group-info
+  border-top: 5px solid $c-user-group-border
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-group-title
+  .more
+    color: $c-user-group-title
+  .group-list
+    @extend %user-sidebar-list
+    li
+      +span(12)
+      border-bottom: 1px solid $c-sidebar-list-border
+    li:last-child
+      border: none
+
+.user-visitor-info
+  border-top: 5px solid $c-user-visitor-border
+  @extend %user-sidebar-block
+  @extend %user-sidebar-block-shadow
+  .title
+    color: $c-user-visitor-title
+  .more
+    color: $c-user-visitor-title
+  .visitor-list
+    @extend %user-sidebar-list
+    li
+      +span(2.4)
+      height: 140px
+      padding: 8px
+      text-align: center
+      font-size: $fz-xs
+      color: $c-user-visitor-name
+      span
+        display: block
+        padding-top: 5px
+      img
+        +box-shadow(0 0 5px #555)
+
+.sidebar-ad-slot
+  margin-top: 25px
+
+
+
+.user-main
+  +span(8)
+  padding: 0 50px
+
+.user-content-tabs
+  +clearfix
+  @extend %user-sidebar-block-shadow
+  margin-top: -13px
+  background-color: $c-user-sidebar-bg
+  ul
+    margin: 0
+    padding: 0
+  li
+    +span(2)
+    list-style: none
+    text-align: center
+    border-top: 8px solid $c-user-content-tabs-border
+  li:hover, .active
+    border-top: 8px solid $c-user-content-tabs-border-hover
+    background: darken($c-user-sidebar-bg, 5)
+  a
+    display: block
+    height: 50px
+    padding-top: 12px
+    color: $c-user-content-tabs-text
+    &:hover
+      text-decoration: none
+
+.user-status-message-wrapper
+  @extend %user-sidebar-block-shadow
+  background-color: $c-user-sidebar-bg
+  margin-top: 40px
+  padding: 20px
+  .user-name
+    font-size: $fz-l
+  .user-status-subinfo
+    color: $c-user-status-message-subinfo
+    font-size: $fz-m
+  .user-status-message
+    margin-top: 20px
+
+
+.user-diaries-wrapper
+  margin-top: 30px
+.user-diary-wrapper
+  @extend %user-sidebar-block-shadow
+  position: relative
+  padding: 20px
+  margin-bottom: 20px
+  background-color: $c-user-sidebar-bg
+  .user-diary-title
+    font-size: $fz-l
+    font-weight: bold
+  .user-diary-subinfo
+    color: $c-user-status-message-subinfo
+    font-size: $fz-m
+  .user-diary-tags
+    +clearfix
+    margin-top: 5px
+    font-size: $fz-s
+    ul
+      padding: 0
+    li
+      list-style: none
+      float: left
+      padding-right: 10px
+      color: $c-user-diary-tags
+  .user-diary-content
+    margin-top: 20px
+    color: $c-user-diary-content-text
+  .read-more-btn
+    text-align: right
+  .more
+    +sassy-button("flat", 0, $fz-s, $c-user-diary-readmore)
+    padding: 10px 20px
+    text-align: center
+  .user-diary-baku
+    position: absolute
+    right: 20px
+    top: 20px
+    width: 50px
+    height: 75px
+    text-align: center
+    color: #fff
+    .baku
+      font-size: $fz-xxl
+    .number
+      font-size: $fz-m
+  .gold-baku
+    background-color: $c-user-diary-baku-gold
+    border-top: 2px solid darken($c-user-diary-baku-gold, 10)
+    border-right: 2px solid darken($c-user-diary-baku-gold, 10)
+    border-left: 2px solid lighten($c-user-diary-baku-gold, 10)
+    border-bottom: 2px solid lighten($c-user-diary-baku-gold, 10)
+
+
+.user-album-wrapper
+  margin-top: 20px
+  ul
+    padding: 0
+  li
+    +span(4)
+    list-style: none
+    padding: 10px
+  a
+    position: relative
+    display: block
+    width: 100%
+    height: 160px
+    +border-radius(10px)
+    background-color: #333
+    +background-size(cover)
+  .user-album-description
+    z-index: index($elements, user-album-descriotion)
+    background-color: rgba(#000, .5)
+    padding: 10px 5px
+    +border-bottom-radius(10px)
+    position: absolute
+    bottom: 0
+    width: 100%
+    color: #fff
+    font-size: $fz-xs
+  .user-album-title
+    display: block
+    text-align: center
+    font-weight: bold
+    margin-top: 5px

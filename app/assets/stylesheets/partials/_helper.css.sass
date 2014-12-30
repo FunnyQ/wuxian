@@ -16,43 +16,66 @@
 .box-shadow
   +box-shadow(rgba(black, 0.6) 0 0 15px)
 
+.off-canvas
+  margin-right: -$w-mobile
+
 .hidden
   display: none
 
-.opacity0
-  opacity: 0
 
-.hidden-mobile
-  display: none
-  +breakpoint($b-mobile)
-    display: block
+%site-navi-item-list
+  ul
+    margin: 0
+    padding: 0
+  li
+    float: left
+    list-style: none
+    padding: 0 20px
+  a
+    color: $c-navi-text
+    &:hover
+      text-decoration: none
 
-.only-mobile
-  display: block
-  +breakpoint($b-mobile)
-    display: none
 
-.only-desktop-up
-  display: none
-  +breakpoint($b-pad)
-    display: block
+%user-sidebar-block
+  margin-top: 15px
+  background-color: $c-user-sidebar-bg
+  padding: 10px
+  .title
+    display: inline
+    font-size: $fz-m
+  .more
+    float: right
+    font-size: $fz-m
+%user-sidebar-block-shadow
+  +box-shadow(0 0 2px #555)
 
-.only-desktop
-  display: none
-  +breakpoint($b-pad)
-    display: block
-  +breakpoint($b-desktop)
-    display: none
 
-.only-large
-  display: none
-  +breakpoint($b-desktop)
-    display: block
+%user-sidebar-list
+  +clearfix
+  margin-top: 10px
+  border-top: 1px solid $c-sidebar-list-border
+  padding-top: 10px
+  padding-left: 10px
+  padding-right: 10px
+  ul
+    margin: 0
+    padding: 0
+  li
+    list-style: none
+    padding: 5px
 
-.only-pad
-  display: none
-  +breakpoint($b-mobile)
-    display: block
-  +breakpoint($b-pad)
-    display: none
 
+// go die IE
+//
+// how to use:
+//
+// +godie_ie(8)
+//   -style here-
+$default_godie_ie: 7 8 9 10 !default
+=godie_ie($versions: $default_godie_ie)
+  $sel: ()
+  @each $v in $versions
+    $sel: append($sel, unquote('.ie#{$v} &'), comma)
+  #{$sel}
+    @content

@@ -1,0 +1,14 @@
+<div class="user-visitor-info">
+  <h3 class="title">誰來我家</h3>
+  <span class="more">看更多〉</span>
+  <div class="visitor-list">
+    <ul>
+      <% 20.times.each do |visitor| %>
+      <li>
+        <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+        <span>Tim Cook</span>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

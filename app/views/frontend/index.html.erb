@@ -1,1 +1,44 @@
-FrontEnd UI preview
+<!-- index.html -->
+    <%= render :partial => "partials/user_cover" %>
+
+    <div class="user-main-content container">
+
+      <!-- 側邊資訊欄位 -->
+      <div class="user-sidebar">
+
+        <%= render :partial => "partials/guest_sidebar" %>
+
+      </div>
+
+      <!-- 主要資料欄位 -->
+      <div class="user-main">
+
+        <%= render :partial => "partials/user_content_tabs" %>
+
+        <!-- 使用者狀態留言欄位 -->
+        <%= render :partial => "partials/user_status_message" %>
+
+        <!-- 日記區塊 -->
+        <div class="user-diaries-wrapper">
+          <% 3.times.each do |d| %>
+            <%= render :partial => "partials/user_diary" %>
+          <% end %>
+        </div>
+
+        <!-- 相簿部分列表 -->
+        <div class="user-album-wrapper">
+          <ul>
+            <% 3.times.each do |a| %>
+            <li>
+              <a href="#" style="background-image: url(<%= asset_path 'assets/user-album.jpg' %>);">
+                <span class="user-album-description">
+                  若回答的出來，我們都是實際跳下去玩的人，一時語塞，默默低頭！我因為寫了這篇稍微具體一點的文章，看似熱鬧的領域，販售政治商品。
+                </span>
+              </a>
+              <span class="user-album-title">相簿標題</span>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>

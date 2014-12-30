@@ -1,0 +1,17 @@
+<div class="user-status-message-wrapper">
+
+  <!-- 使用者名稱 -->
+  <div class="user-name">
+    <span>Tim Cook</span>
+  </div>
+
+  <!-- 附加訊息 -->
+  <div class="user-status-subinfo">
+    <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
+  </div>
+
+  <!-- 狀態留言 -->
+  <div class="user-status-message">
+    <span>iPhone 6 是我用過最好的手機！</span>
+  </div>
+</div>

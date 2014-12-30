@@ -5,5 +5,102 @@
 //
 // *************************************
 
-%m0auto
+// a row container
+.qrow
+  +break
+
+// a row container
+%span12
+  +span(12)
+
+// Base
+.container
+  width: 1280px
   margin: 0 auto
+
+  // +container($w-320)
+  // +breakpoint($b-320)
+  //   +container($w-mobile)
+  // +breakpoint($b-mobile)
+  //   +container($w-pad)
+  // +breakpoint($b-pad)
+  //   +container($w-desktop)
+  // +breakpoint($b-desktop)
+  //   +container($w-large)
+
+body
+  background-color: $c-body-bg
+
+
+// 全站選單
+.site-navi
+  padding-top: 23px
+  height: 70px
+  width: 1280px
+  background-color: $c-navi-bg
+  border-bottom: 2px solid $c-navi-border
+  +breakpoint(1280px)
+    width: 100%
+  // 暫時不支援 RWD 的 workround
+
+.site-navi-logo
+  +span(1)
+  padding: 0 5px
+.site-navi-logo-wrapper
+  width: 100%
+
+.site-navi-menu
+  +clearfix
+  +span(8)
+  padding: 0 20px
+  overflow: visible
+.site-navi-menu-main
+  float: left
+  margin-top: -10px
+  @extend %site-navi-item-list
+  .main-menu-item
+    padding: 10px 20px
+  li:hover
+    background-color: $c-navi-hover
+.site-navi-menu-sub
+  float: left
+  margin-top: -3px
+  margin-left: 30px
+  padding: 5px 20px
+  +border-radius(5px)
+  @extend %site-navi-item-list
+  li
+    border-right: 1px solid $c-navi-items-border
+  li:last-child
+    border: none
+  background-color: $c-navi-sub-bg
+
+.site-navi-useroption
+  +span(3)
+  .site-navi-avatar
+    float: left
+    margin-top: -8px
+    width: 40px
+    img
+      border: 3px solid #fff
+  .site-navi-username
+    float: left
+    color: $c-navi-text
+    margin-left: 5px
+  .site-navi-options
+    float: left
+    margin-left: 10px
+    a
+      margin-left: 5px
+      color: $c-navi-text
+
+// Footer
+.wuxian-footer
+  margin-top: 25px
+  height: 50px
+  padding: 15px 0
+  background-color: $c-footer-bg
+  border-top: 6px solid $c-footer-border-top
+  color: $c-footer-text
+  font-size: $fz-xs
+  text-align: center

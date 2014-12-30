@@ -1,4 +1,48 @@
-<!-- header -->
-<header>
+<!-- partials/header -->
+    <nav class="site-navi">
+      <div class="container">
 
-</header>
+        <!-- LOGO -->
+        <div class="site-navi-logo">
+          <div class="site-navi-logo-wrapper">
+            <h1 class="hidden">無限</h1>
+            <%= image_tag 'assets/site-navi-logo.png', :class => "img-responsive" %>
+          </div>
+        </div>
+
+        <!-- main menu -->
+        <div class="site-navi-menu">
+          <div class="site-navi-menu-main">
+            <ul>
+              <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-home.png' %></span> 首頁</a></li>
+              <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-diary.png' %></span> 日記</a></li>
+              <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-album.png' %></span> 相簿</a></li>
+              <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-social.png' %></span> 交友</a></li>
+            </ul>
+          </div>
+          <div class="site-navi-menu-sub">
+            <ul>
+              <li><a href="#">試用</a></li>
+              <li><a href="#">話題</a></li>
+              <li><a href="#">活動</a></li>
+              <li><a href="#">票選</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- user menu -->
+        <div class="site-navi-useroption">
+          <div class="site-navi-avatar">
+            <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+          </div>
+          <div class="site-navi-username">
+            <span>Tim Cook</span>
+          </div>
+          <div class="site-navi-options">
+            <a href="#"><%= image_tag 'assets/site-navi-icon-message.png' %> (<%= rand(50) %>)</a>
+            <a href="#"><%= image_tag 'assets/site-navi-icon-logout.png' %></a>
+            <a href="#"><%= image_tag 'assets/site-navi-icon-setting.png' %></a>
+          </div>
+        </div>
+      </div>
+    </nav>
