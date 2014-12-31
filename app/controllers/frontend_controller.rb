@@ -1,6 +1,7 @@
   class FrontendController < ApplicationController
 
     def index
+      @status = Status.new
     end
 
     def diaries_index

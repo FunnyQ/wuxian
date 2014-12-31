@@ -1,11 +1,21 @@
 <div class="user-title-card">
   <div class="user-title-card-avatar">
-    <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+    <% if !current_user %>
+      <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+    <% else %>
+      <%= image_tag "https://graph.facebook.com/#{current_user.fb_id}/picture?type=large", :class => "img-responsive img-circle" %>
+    <% end %>
   </div>
   <div class="user-title-card-info">
     <div class="user-info">
-      <h2 class="name">Tim Cook</h2>
-      <span class="level">LV 58</span>
+      <h2 class="name">
+        <% if !current_user %>
+          Tim Cook
+        <% else %>
+          <%= current_user.name %>
+        <% end %>
+      </h2>
+      <span class="level">LV <%= rand(99) %></span>
     </div>
     <div class="user-social-btns">
       <div class="follow">

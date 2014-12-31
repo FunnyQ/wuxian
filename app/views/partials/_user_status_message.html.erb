@@ -2,7 +2,13 @@
 
   <!-- 使用者名稱 -->
   <div class="user-name">
-    <span>Tim Cook</span>
+    <span>
+      <% if !current_user %>
+        Tim Cook：
+      <% else %>
+        <%= current_user.name %>：
+      <% end %>
+    </span>
   </div>
 
   <!-- 附加訊息 -->
@@ -12,7 +18,13 @@
 
   <!-- 狀態留言 -->
   <div class="user-status-message">
-    <span>iPhone 6 是我用過最好的手機！</span>
+    <span>
+      <% if !current_user %>
+        iPhone 6 是我用過最好的手機！
+      <% else %>
+        <%= render_status %>
+      <% end %>
+    </span>
   </div>
 
   <!-- <div id="disqus_thread"></div>

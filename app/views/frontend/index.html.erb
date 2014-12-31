@@ -35,29 +35,7 @@
         <%= render :partial => "partials/user_content_tabs" %>
 
         <!-- 使用者狀態更新表單 -->
-        <div class="user-status-form-wrapper">
-          <div class="user-status-form-avatar">
-            <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
-          </div>
-          <div class="user-status-form">
-            <div class="user-name">
-              <span>Tim Cook：</span>
-            </div>
-            <form action="">
-              <div class="textarea-wrapper">
-                <textarea class="form-control" placeholder="想說些什麼？" rows="3"></textarea>
-              </div>
-              <div class="options-wrapper">
-                <div class="submit-btn">
-                  <button><i class="fa fa-edit"></i> 發表</button>
-                </div>
-                <div class="histroy-link">
-                  <a href="#">歷史紀錄</a>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <%= render :partial => "partials/user_status_message_form" %>
 
         <!-- 使用者狀態留言欄位 -->
         <%= render :partial => "partials/user_status_message" %>
