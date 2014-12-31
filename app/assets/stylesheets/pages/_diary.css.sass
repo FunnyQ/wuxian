@@ -48,12 +48,27 @@
   .user-diary-content
     margin-top: 20px
     color: $c-user-diary-content-text
+    img
+      display: block
+      max-width: 70%
+      margin: 25px auto
+      border: 5px solid #fff
+      +box-shadow(0 0 3px #888)
+      +transition(all, 0.3s)
+      &:hover
+        +box-shadow(0 0 20px #888)
+        +transform(rotate(1deg))
+        +backface-visibility(hidden)
+
   .read-more-btn
     text-align: right
   .more
     +sassy-button("flat", 0, $fz-s, $c-user-diary-readmore)
     padding: 10px 20px
     text-align: center
+
+
+
 
 .user-diary-latest-list
   @extend %user-sidebar-block
@@ -120,3 +135,14 @@
 .show-diary-widget-wrapper
   +span(4)
   padding: 0 20px
+  .diary-map-wrapper
+    @extend %user-sidebar-block
+    @extend %user-sidebar-block-shadow
+    @extend %block-hover-effect
+    margin-top: 0
+    padding: 0
+    .title-wrapper
+      text-align: center
+      background-color: $c-diary-map-title-bg
+      color: $c-diary-map-title
+
