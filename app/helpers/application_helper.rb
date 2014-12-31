@@ -12,7 +12,7 @@ module ApplicationHelper
   # 顯示最新狀態
   def render_status
     if current_user.statuses.present?
-      current_user.statuses.last.content
+      current_user.statuses.recent.first.content
     else
       " [ 目前還沒有狀態 :< ]"
     end

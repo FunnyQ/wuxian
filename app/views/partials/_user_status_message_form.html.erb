@@ -16,18 +16,36 @@
         <% end %>
       </span>
     </div>
-    <form action="">
-      <div class="textarea-wrapper">
-        <textarea class="form-control" placeholder="想說些什麼？" rows="3"></textarea>
-      </div>
-      <div class="options-wrapper">
-        <div class="submit-btn">
-          <button><i class="fa fa-edit"></i> 發表</button>
+    <% if !current_user %>
+      <form action="">
+        <div class="textarea-wrapper">
+          <textarea class="form-control" placeholder="想說些什麼？" rows="3"></textarea>
         </div>
-        <div class="histroy-link">
-          <a href="#">歷史紀錄</a>
+        <div class="options-wrapper">
+          <div class="submit-btn">
+            <button><i class="fa fa-edit"></i> 發表</button>
+          </div>
+          <div class="histroy-link">
+            <a href="#">歷史紀錄</a>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    <% else %>
+      <%= form_for current_user.statuses.new do |f| %>
+        <div class="textarea-wrapper">
+          <%= f.text_area :content, :class => "form-control", :placeholder => "想說些什麼？", :row => 3 %>
+        </div>
+        <div class="options-wrapper">
+          <div class="submit-btn">
+            <%= button_to statuses_path, :method => "post" do %>
+              <i class="fa fa-edit"></i> 發表
+            <% end %>
+          </div>
+          <div class="histroy-link">
+            <a href="#">歷史紀錄</a>
+          </div>
+        </div
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums
   get '/users/tim_cook/albums/17' => 'frontend#album_show', :as => :user_album_show
 
+  resources :statuses, :only => [:create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

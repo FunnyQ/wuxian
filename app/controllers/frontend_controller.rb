@@ -1,7 +1,10 @@
   class FrontendController < ApplicationController
 
     def index
-      @status = Status.new
+      if current_user
+        @status = current_user.statuses.new
+        @status.user_id = current_user.id
+      end
     end
 
     def diaries_index
