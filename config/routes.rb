@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'frontend#index'
   get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
+  get '/users/tim_cook/diary/23' => 'frontend#diary_show', :as => :user_diary_show
   get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums
   get '/users/tim_cook/albums/17' => 'frontend#album_show', :as => :user_album_show
 

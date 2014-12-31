@@ -1,5 +1,5 @@
 <!-- 單則日記 -->
-<div class="user-diary-wrapper">
+<div class="user-diary-detail-wrapper">
 
   <!-- 推爆等級 -->
   <div class="user-diary-baku gold-baku">
@@ -29,10 +29,22 @@
 
   <div class="user-diary-content">
     <p>《真愛繞圈圈》是莉莉柯林斯重新出發，從學生演到少婦的當代都會愛情故事，有別於《天使聖物：骸骨之城》的奇幻愛情冒險電影，《真愛繞圈圈》很務實，在務實到幾乎讓人不忍面對的現實女子成長記事之中，這會兒電影沒有讓其他奇幻的或魔法的炫麗搶走莉莉柯林斯的美麗神采，專心地好好聚焦在莉莉的臉上，終於讓影迷「莉莉柯林斯看到飽」，並且幾乎是每一分每一秒都由莉莉撐完整場電影，如果這樣都還無法讓這位甜姐兒風靡全世界，那影壇上還有什麼讓人期待的趣事可言？</p>
+    <p>看了電影以後也的確印證了這套公式的確不會出錯，但《真愛繞圈圈》沒打算讓一個人一直守候著另一個人，而是兩個人不斷地在對方有伴時發現自己愛他/她，又在對方沒伴時自己有伴（喂！～）錯過來又錯過去的，竟然也就十幾年過去了。</p>
   </div>
 
-  <div class="read-more-btn">
-    <%= link_to '看全文〉', user_diary_show_path, :class => "more" %>
-  </div>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'test4wuxian'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>

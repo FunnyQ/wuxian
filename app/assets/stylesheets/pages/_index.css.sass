@@ -42,6 +42,7 @@
 
 
 .user-main-content
+  +pie-clearfix
 
 .user-sidebar
   +span(4)
@@ -269,65 +270,6 @@
     font-size: $fz-m
   .user-status-message
     margin-top: 20px
-
-
-.user-diaries-wrapper
-  margin-top: 30px
-.user-diary-wrapper
-  @extend %user-sidebar-block-shadow
-  @extend %block-hover-effect
-  position: relative
-  padding: 20px
-  margin-bottom: 20px
-  background-color: $c-user-sidebar-bg
-  .user-diary-baku
-    position: absolute
-    left: 20px
-    top: 20px
-    width: 50px
-    height: 75px
-    text-align: center
-    color: #fff
-    .baku
-      font-size: $fz-xxl
-    .number
-      font-size: $fz-m
-  .gold-baku
-    background-color: $c-user-diary-baku-gold
-    border-top: 2px solid darken($c-user-diary-baku-gold, 10)
-    border-right: 2px solid darken($c-user-diary-baku-gold, 10)
-    border-left: 2px solid lighten($c-user-diary-baku-gold, 10)
-    border-bottom: 2px solid lighten($c-user-diary-baku-gold, 10)
-  .user-diary-info-wrapper
-    padding-left: 70px
-  .user-diary-title
-    margin-top: 5px
-    font-size: $fz-l
-    font-weight: bold
-  .user-diary-subinfo
-    color: $c-user-status-message-subinfo
-    font-size: $fz-m
-  .user-diary-tags
-    +pie-clearfix
-    margin-top: 5px
-    font-size: $fz-s
-    ul
-      padding: 0
-    li
-      list-style: none
-      float: left
-      padding-right: 10px
-      color: $c-user-diary-tags
-  .user-diary-content
-    margin-top: 20px
-    color: $c-user-diary-content-text
-  .read-more-btn
-    text-align: right
-  .more
-    +sassy-button("flat", 0, $fz-s, $c-user-diary-readmore)
-    padding: 10px 20px
-    text-align: center
-
 
 .user-album-wrapper
   margin-top: 20px

@@ -1,0 +1,44 @@
+<!-- index.html -->
+    <%= render :partial => "partials/user_cover" %>
+
+    <div class="user-main-content container">
+
+      <!-- 側邊資訊欄位 -->
+      <div class="user-sidebar">
+
+        <!-- 使用者資料卡，包含社交按鈕 -->
+        <%= render :partial => "partials/user_title_card" %>
+
+      </div>
+
+      <!-- 主要資料欄位 -->
+      <div class="user-main">
+
+        <%= render :partial => "partials/user_content_tabs" %>
+
+      </div>
+
+    </div>
+
+
+    <div class="show-diary-wrapper container">
+      <!-- 日記顯示欄位 -->
+      <div class="show-diary-main-content-wrapper">
+
+        <!-- 狀態數值 -->
+        <%= render :partial => "partials/user_status_info" %>
+
+        <!-- 日記本體 -->
+        <%= render :partial => "partials/user_diary_detail" %>
+      </div>
+
+      <!-- 日記頁面側邊條 -->
+      <div class="show-diary-widget-wrapper">
+
+        <!-- 最新網誌 -->
+        <%= render :partial => "partials/user_diary_latest_list" %>
+
+        <!-- 最新留言 -->
+        <%= render :partial => "partials/user_diary_comments_list" %>
+      </div>
+    </div>
