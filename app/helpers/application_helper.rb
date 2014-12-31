@@ -11,7 +11,7 @@ module ApplicationHelper
 
   # 顯示最新狀態
   def render_status
-    if current_user.statuses.present?
+    if current_user.statuses.recent.present?
       current_user.statuses.recent.first.content
     else
       " [ 目前還沒有狀態 :< ]"
@@ -20,7 +20,7 @@ module ApplicationHelper
 
   # 顯示狀態發表時間
   def render_status_publish_time
-    if current_user.statuses.present?
+    if current_user.statuses.recent.present?
       time_ago_in_words(current_user.statuses.recent.first.created_at) + "前"
     else
       "昨天 19:31"
