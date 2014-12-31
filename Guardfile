@@ -23,14 +23,7 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard 'livereload', :host => 'http://wuxian-rails.dev/' do
-  watch(%r{app/views/.+\.(erb|haml|slim)$})
-  watch(%r{app/helpers/.+\.rb})
-  watch(%r{public/.+\.(css|js|html)})
-  watch(%r{config/locales/.+\.yml})
-  # Rails Assets Pipeline
-  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
-end
+
 
 guard 'pow' do
   watch('.powrc')
@@ -96,4 +89,13 @@ guard :rspec, cmd: "bundle exec rspec" do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
+end
+
+guard 'livereload' do
+  watch(%r{app/views/.+\.(erb|haml|slim)$})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/locales/.+\.yml})
+  # Rails Assets Pipeline
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end

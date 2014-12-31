@@ -36,6 +36,31 @@
 
         <%= render :partial => "partials/user_content_tabs" %>
 
+        <!-- 使用者狀態更新表單 -->
+        <div class="user-status-form-wrapper">
+          <div class="user-status-form-avatar">
+            <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+          </div>
+          <div class="user-status-form">
+            <div class="user-name">
+              <span>Tim Cook：</span>
+            </div>
+            <form action="">
+              <div class="textarea-wrapper">
+                <textarea class="form-control" placeholder="在想什麼？" rows="3"></textarea>
+              </div>
+              <div class="options-wrapper">
+                <div class="submit-btn">
+                  <button><i class="fa fa-edit"></i> 發表</button>
+                </div>
+                <div class="histroy-link">
+                  <a href="#">歷史紀錄</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <!-- 使用者狀態留言欄位 -->
         <%= render :partial => "partials/user_status_message" %>
 
@@ -53,7 +78,7 @@
             <li>
               <a href="#" style="background-image: url(<%= asset_path 'assets/user-album.jpg' %>);">
                 <span class="user-album-description">
-                  若回答的出來，我們都是實際跳下去玩的人，一時語塞，默默低頭！我因為寫了這篇稍微具體一點的文章，看似熱鬧的領域，販售政治商品。
+                  若回答的出來，我們都是實際跳下去玩的人，一時語塞，默默低頭！我因為寫了這篇稍微具體一點的文章，看似熱鬧的領域。
                 </span>
               </a>
               <span class="user-album-title">相簿標題</span>
