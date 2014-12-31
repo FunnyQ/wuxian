@@ -11,6 +11,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require vendor/_bootstrap
+#= require jQuery.Marquee/jquery.marquee
 
 
 
