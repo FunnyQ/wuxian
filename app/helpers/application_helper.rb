@@ -18,4 +18,12 @@ module ApplicationHelper
     end
   end
 
+  # 顯示狀態發表時間
+  def render_status_publish_time
+    if current_user.statuses.present?
+      time_ago_in_words(current_user.statuses.recent.first.created_at) + "前"
+    else
+      "昨天 19:31"
+    end
+  end
 end

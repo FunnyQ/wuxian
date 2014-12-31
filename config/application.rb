@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module WuxianRails
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","fontawesome","fonts")
@@ -25,5 +26,8 @@ module WuxianRails
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # 設定預設語系
+    config.i18n.default_locale = "zh-TW"
   end
 end

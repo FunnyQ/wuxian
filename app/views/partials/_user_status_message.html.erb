@@ -13,7 +13,7 @@
 
   <!-- 附加訊息 -->
   <div class="user-status-subinfo">
-    <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
+    <span class="timestamp"><%= render_status_publish_time %></span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
   </div>
 
   <!-- 狀態留言 -->
