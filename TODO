@@ -1,0 +1,3 @@
+ ☐ change !current_user to user_signed_in? helper
+ ☐ after signed path redirect to user_index_path
+

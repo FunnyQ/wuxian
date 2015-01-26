@@ -14,7 +14,7 @@
         <div class="site-navi-menu">
           <div class="site-navi-menu-main">
             <ul>
-              <li class="main-menu-item">
+              <li class="main-menu-item <%= link_actived?(root_path) %>">
                 <%= link_to root_path do %>
                   <span><%= image_tag 'assets/site-navi-icon-home.png' %></span> 首頁
                 <% end %>
