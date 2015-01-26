@@ -14,7 +14,11 @@
         <div class="site-navi-menu">
           <div class="site-navi-menu-main">
             <ul>
-              <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-home.png' %></span> 首頁</a></li>
+              <li class="main-menu-item">
+                <%= link_to root_path do %>
+                  <span><%= image_tag 'assets/site-navi-icon-home.png' %></span> 首頁
+                <% end %>
+              </li>
               <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-diary.png' %></span> 日記</a></li>
               <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-album.png' %></span> 相簿</a></li>
               <li class="main-menu-item"><a href="#"><span><%= image_tag 'assets/site-navi-icon-social.png' %></span> 交友</a></li>
@@ -39,12 +43,14 @@
               <% end %>
             </div>
           <% else %>
-            <div class="site-navi-avatar">
-              <%= image_tag "https://graph.facebook.com/#{current_user.fb_id}/picture?type=large", :class => "img-responsive img-circle" %>
-            </div>
-            <div class="site-navi-username">
-              <span><%= current_user.name %></span>
-            </div>
+            <%= link_to user_index_path do %>
+              <div class="site-navi-avatar">
+                <%= image_tag "https://graph.facebook.com/#{current_user.fb_id}/picture?type=large", :class => "img-responsive img-circle" %>
+              </div>
+              <div class="site-navi-username">
+                <span><%= current_user.name %></span>
+              </div>
+            <% end %>
             <div class="site-navi-options">
               <a href="#"><%= image_tag 'assets/site-navi-icon-message.png' %> (<%= rand(50) %>)</a>
               <%= link_to destroy_user_session_path, :method => "delete" do %>

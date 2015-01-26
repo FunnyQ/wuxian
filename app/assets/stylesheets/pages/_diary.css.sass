@@ -124,8 +124,7 @@
 
 .show-diary-main-content-wrapper
   +pie-clearfix
-  +span(8)
-  padding: 0 25px
+  @extend %col-8
   .user-status-info
     margin-top: 0
   .user-diary-detail-wrapper
@@ -133,8 +132,7 @@
 
 
 .show-diary-widget-wrapper
-  +span(4)
-  padding: 0 20px
+  @extend %col-4
   .diary-map-wrapper
     @extend %user-sidebar-block
     @extend %user-sidebar-block-shadow
