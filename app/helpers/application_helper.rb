@@ -9,6 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def link_actived?(link_path)
+    if current_page?(link_path)
+      "active"
+    end
+  end
+
   # 顯示最新狀態
   def render_status
     status = current_user.statuses.recent
