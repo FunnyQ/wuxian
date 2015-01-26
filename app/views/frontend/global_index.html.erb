@@ -163,3 +163,39 @@
     <% end %>
   </div>
 </div>
+
+<div class="global-index-business-wrapper container">
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">熱門活動</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">活動名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">最新任務</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover2.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">任務名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">投票大廳</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover3.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">投票名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
