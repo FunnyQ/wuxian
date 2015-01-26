@@ -23,6 +23,12 @@ $ ->
     #true or false - should the marquee be duplicated to show an effect of continues flow
     duplicated: true
 
+  $('.global-index-slider').bxSlider
+    mode: 'fade'
+    controls: false
+    auto: true
+    pause: 5000
+
 
 # turbolink 用
 $(document).on "ready page:change", ->
