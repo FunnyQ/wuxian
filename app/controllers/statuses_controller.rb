@@ -7,7 +7,7 @@ class StatusesController < ApplicationController
           if @status.save
             format.html { redirect_to root_path, notice: 'status was successfully created.' }
           else
-            format.html { render root_path }
+            format.html { redirect_to root_path }
           end
         end
   end

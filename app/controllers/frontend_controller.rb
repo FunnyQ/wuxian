@@ -19,4 +19,7 @@
     def album_show
     end
 
+    def global_index
+    end
+
   end

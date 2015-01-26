@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'frontend#index'
+  root 'frontend#global_index'
+  get '/users/tim_cook' => 'frontend#index', :as => :user_index
   get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
   get '/users/tim_cook/diary/23' => 'frontend#diary_show', :as => :user_diary_show
   get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums

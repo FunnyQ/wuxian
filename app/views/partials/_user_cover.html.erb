@@ -1,14 +1,5 @@
 <div class="user-cover-image" style="background-image: url(<%= asset_path 'assets/user-cover.jpg' %>);">
-  <div class="hot-news-container">
-    <div class="hot-news-title">
-      <span>Hot News !></span>
-    </div>
-    <div class="hot-news-content">
-      <ul>
-        <li><a href="#"><span>〉</span> 創舉英科學家計劃在火星種菜</a></li>
-        <li><a href="#"><span>〉</span> 跨年APP快速叫車6千輛小黃待命</a></li>
-        <li><a href="#"><span>〉</span> 蘋果裝置仍是主流聖誕週新裝置啟動達51%</a></li>
-      </ul>
-    </div>
-  </div>
+
+  <%= render partial: "partials/hot_news_marquee" %>
+
 </div>
