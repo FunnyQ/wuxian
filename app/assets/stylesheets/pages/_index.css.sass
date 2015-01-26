@@ -1,5 +1,6 @@
 .global-index-main-wrapper
   margin-top: 30px
+  padding: 0 10px
 
 .global-index-main-col
   @extend %col-8
@@ -98,17 +99,11 @@
         color: darken($c-main-orange, 10)
 
 
-
-
-
-
-
 .global-index-side-col
   @extend %col-4
 
 .global-index-friend-status-wrapper
   @extend %user-sidebar-block-shadow
-  background-color: $c-user-sidebar-bg
   .friend-status-title
     font-size: $fz-m
     text-align: center
@@ -118,11 +113,13 @@
     padding: .5em
   .status-unit
     +pie-clearfix
+    width: 100%
     padding: .2em .5em
     border-bottom: 3px solid $c-global-index-friend-status-border
+    background-color: $c-user-sidebar-bg
     +transition(all .3s)
     &:hover
-      margin-left: -5px
+      margin-left: -8px
     .avatar
       +span(2)
       img
@@ -140,3 +137,63 @@
       font-size: $fz-s
       color: $c-dark-grey
       line-height: 1.3
+
+
+
+.global-index-diaries-wrapper
+  +pie-clearfix
+  margin-top: 25px
+  padding-left: 25px
+  padding-right: 20px
+  .global-index-dairies-title
+    padding: 0 10px
+  h3
+    margin: 0
+    padding: .5em 2em
+    background-color: $c-white
+    font-size: $fz-l
+    font-weight: bolder
+    border: 1px solid lighten($c-dark-grey, 60)
+  .diaries-wrapper
+    padding-left: 10px
+  .diary-unit
+    display: block
+    margin-top: 10px
+    +span(6)
+    padding-right: 10px
+    color: $c-dark-grey
+    &:focus, &:hover
+      text-decoration: none
+  .diary-inner-wrapper
+    +transition(all .3s)
+    @extend %block-hover-effect
+    padding: 30px
+    border: 1px solid lighten($c-dark-grey, 60)
+    background-color: $c-white
+    .diary-cover
+      width: 100%
+      height: 300px
+      +background-size(cover)
+      background-repeat: no-repeat
+      background-position: center center
+  .diary-info-wrapper
+    +pie-clearfix
+    position: relative
+    margin-top: 20px
+    .diary-baku
+      @extend %baku
+      left: 0
+      top: 0
+    .diary-title
+      padding-left: 65px
+      padding-top: 10px
+      margin: 0
+      margin-bottom: 5px
+      font-size: $fz-xl
+      font-weight: bolder
+    .diary-subinfo
+      padding-left: 65px
+      color: $c-user-status-message-subinfo
+      font-size: $fz-m
+    .diary-content
+      margin-top: 20px
