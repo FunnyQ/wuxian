@@ -5,6 +5,7 @@
   @extend %col-8
   .bx-wrapper
     @extend %user-sidebar-block-shadow
+    margin: 0
   .global-index-slider
     padding: 0
     .slider-content-wrapper
@@ -24,14 +25,51 @@
   .bx-wrapper .bx-pager
     width: auto
     right: 15px
-    bottom: 23px
+    bottom: 20px
   .bx-wrapper .bx-pager.bx-default-pager a
-    width: 15px
-    height: 15px
+    width: 12px
+    height: 12px
     +border-radius(50%)
     background-color: $c-global-index-slider-pager
   .bx-wrapper .bx-pager.bx-default-pager a.active
     background-color: $c-global-index-slider-pager-active
 
+  .global-index-albums-wrapper
+    margin-top: 25px
+
+
+
 .global-index-side-col
   @extend %col-4
+
+.global-index-friend-status-wrapper
+  @extend %user-sidebar-block-shadow
+  background-color: $c-user-sidebar-bg
+  .friend-status-title
+    font-size: $fz-m
+    text-align: center
+    color: $c-white
+    background-color: $c-main-orange
+    margin: 0
+    padding: .5em
+  .status-unit
+    +pie-clearfix
+    padding: .2em .5em
+    border-bottom: 3px solid $c-global-index-friend-status-border
+    .avatar
+      +span(2)
+      img
+        border: 5px solid $c-white
+    .content
+      +span(10)
+      padding-left: .5em
+    .name
+      display: block
+      margin-top: .2em
+      color: darken($c-main-orange, 10)
+      font-size: $fz-m
+    .status
+      margin-top: .2em
+      font-size: $fz-s
+      color: $c-dark-grey
+      line-height: 1.3

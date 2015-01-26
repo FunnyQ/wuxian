@@ -7,6 +7,8 @@
 
   <!-- slider + albums -->
   <div class="global-index-main-col">
+
+    <!-- slider -->
     <ul class="global-index-slider">
 
       <!-- slider unit -->
@@ -43,11 +45,58 @@
       </li>
 
     </ul>
+
+    <!-- album tabs -->
+    <div class="global-index-albums-wrapper">
+
+      <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">...</div>
+          <div role="tabpanel" class="tab-pane" id="profile">...</div>
+          <div role="tabpanel" class="tab-pane" id="messages">...</div>
+          <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        </div>
+
+    </div>
+
+
   </div>
 
   <!-- status + ads -->
   <div class="global-index-side-col">
-    2
+
+    <!-- friends status -->
+    <div class="global-index-friend-status-wrapper">
+      <h3 class="friend-status-title">好友即時動態</h3>
+
+      <% 5.times.each do |s| %>
+
+      <!-- status unit -->
+      <div class="status-unit">
+        <div class="avatar">
+          <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+        </div>
+        <div class="content">
+          <span class="name">Tim Cool</span>
+          <p class="status">到幾乎讓人不忍面對的現實女子成長記事之中，這會兒電影沒有讓其他奇幻的或魔法的炫麗搶走莉莉柯林斯</p>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+
+    <!-- ads -->
+    <%= render partial: "partials/ad_widget" %>
+
   </div>
 
 </div>
