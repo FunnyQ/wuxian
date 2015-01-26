@@ -12,6 +12,7 @@
 #= require turbolinks
 #= require vendor/_bootstrap
 #= require jQuery.Marquee/jquery.marquee
+#= require bx-slider.js/jquery.bxslider
 
 
 
