@@ -12,7 +12,7 @@
         <% if !current_user %>
           Tim Cook：
         <% else %>
-          <%= current_user.name %>：
+          <%= render_username %>：
         <% end %>
       </span>
     </div>

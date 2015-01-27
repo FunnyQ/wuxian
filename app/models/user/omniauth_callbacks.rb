@@ -48,17 +48,17 @@ class User
       # user.email = "twitter+#{uid}@example.com" if provider == "twitter"
       # user.email = "douban+#{uid}@example.com" if provider == "douban"
 
-      user.name = data["name"] if provider == "facebook"
+      user.real_name = data["name"] if provider == "facebook"
       # user.name = data["name"] if provider == "google"
       # user.name.gsub!(/[^\w]/, "_")
 
       # 使用者名稱重複的話，用時間參數當作使用者名稱
-      if User.where(:name => user.name).count > 0 || user.name.blank?
-        user.name = "u#{Time.now.to_i}"
+      if User.where(:real_name => user.real_name).count > 0 || user.real_name.blank?
+        user.real_name = "u#{Time.now.to_i}"
       end
 
       user.password = Devise.friendly_token[0,20]
-      # user.location = data["location"]
+      user.location = data["location"]
       # user.tagline = data["description"]
 
       return user

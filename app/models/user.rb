@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :statuses
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
 
   extend OmniauthCallbacks
 
