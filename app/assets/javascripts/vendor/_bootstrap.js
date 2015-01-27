@@ -1,6 +1,6 @@
 // 依需求引入 Bootstrap Javascript
 // require bootstrap-sass-official/assets/javascripts/bootstrap/affix
-// require bootstrap-sass-official/assets/javascripts/bootstrap/alert
+//= require bootstrap-sass-official/assets/javascripts/bootstrap/alert
 // require bootstrap-sass-official/assets/javascripts/bootstrap/button
 // require bootstrap-sass-official/assets/javascripts/bootstrap/carousel
 // require bootstrap-sass-official/assets/javascripts/bootstrap/collapse

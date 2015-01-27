@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127140040) do
+ActiveRecord::Schema.define(version: 20150127163940) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20150127140040) do
     t.string   "nick_name"
     t.string   "mobile_phone"
     t.string   "location"
+    t.integer  "level",                  default: 1,  null: false
+    t.integer  "viewed",                 default: 1,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

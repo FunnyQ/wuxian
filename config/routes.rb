@@ -11,9 +11,12 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  get '/:nick_name' => 'users#show', as: :user_index
+  resources :users, only: [:show]
+
 
   # pages which in developing status
-  get '/users/tim_cook' => 'frontend#index', :as => :user_index
+  # get '/users/tim_cook' => 'frontend#index', :as => :user_index
   get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
   get '/users/tim_cook/diary/23' => 'frontend#diary_show', :as => :user_diary_show
   get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums

@@ -43,7 +43,7 @@
               <% end %>
             </div>
           <% else %>
-            <%= link_to user_index_path do %>
+            <%= link_to user_path(current_user) do %>
               <div class="site-navi-avatar">
                 <%= image_tag render_avatar, :class => "img-responsive img-circle" %>
               </div>

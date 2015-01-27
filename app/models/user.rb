@@ -38,4 +38,9 @@ class User < ActiveRecord::Base
     authorizations.create(:provider => provider , :uid => uid )
   end
 
+  def count_up!
+    self.viewed += 1
+    self.save
+  end
+
 end

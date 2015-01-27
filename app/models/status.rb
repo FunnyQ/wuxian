@@ -15,4 +15,5 @@ class Status < ActiveRecord::Base
   validates :content, presence: true
 
   scope :latest, -> {self.last}
+  scope :get_latest, -> {self.last(5).reverse}
 end
