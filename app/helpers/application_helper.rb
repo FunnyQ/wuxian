@@ -14,6 +14,7 @@ module ApplicationHelper
     end
   end
 
+  # check active status 2
   def link_actived?(link_path)
     if current_page?(link_path)
       "active"
@@ -23,6 +24,15 @@ module ApplicationHelper
   # render avatar
   def render_avatar
     "https://graph.facebook.com/#{current_user.authorizations.find_by_provider('facebook').uid}/picture?type=large"
+  end
+
+  # render user name
+  def render_username
+    if current_user.nick_name?
+      current_user.nick_name
+    else
+      current_user.real_name
+    end
   end
 
   # 顯示最新狀態
