@@ -22,8 +22,8 @@ module ApplicationHelper
   end
 
   # render avatar
-  def render_avatar
-    "https://graph.facebook.com/#{current_user.authorizations.find_by_provider('facebook').uid}/picture?type=large"
+  def render_avatar(user = current_user)
+    "https://graph.facebook.com/#{user.authorizations.find_by_provider('facebook').uid}/picture?type=large"
   end
 
   # render user name
@@ -46,8 +46,8 @@ module ApplicationHelper
   end
 
   # 顯示狀態發表時間
-  def render_status_publish_time
-    status = current_user.statuses.latest
+  def render_status_publish_time(user = current_user)
+    status = user.statuses.latest
     if status.present?
       time_ago_in_words(status.created_at) + "前"
     else

@@ -1,19 +1,11 @@
 <div class="user-title-card">
   <div class="user-title-card-avatar">
-    <% if !current_user %>
-      <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
-    <% else %>
-      <%= image_tag render_avatar, :class => "img-responsive img-circle" %>
-    <% end %>
+      <%= image_tag render_avatar(user), :class => "img-responsive img-circle" %>
   </div>
   <div class="user-title-card-info">
     <div class="user-info">
       <h2 class="name">
-        <% if !current_user %>
-          Tim Cook
-        <% else %>
-          <%= render_username %>
-        <% end %>
+        <%= render_username(user) %>
       </h2>
       <span class="level">LV <%= rand(99) %></span>
     </div>
