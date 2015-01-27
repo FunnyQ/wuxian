@@ -10,6 +10,12 @@ $ ->
   # hot news marquee
   $(".hot-news-content").marquee
 
+    allowCss3Support: true
+
+    css3easing: 'linear'
+
+    pauseOnHover: true
+
     #speed in milliseconds of the marquee
     duration: 15000
 
