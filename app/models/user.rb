@@ -24,12 +24,18 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  extend OmniauthCallbacks
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :statuses
   has_many :authorizations
+
+  extend OmniauthCallbacks
+
+  def bind_service(response)
+    provider = response["provider"]
+    uid = response["uid"]
+    authorizations.create(:provider => provider , :uid => uid )
+  end
 
 end

@@ -20,6 +20,11 @@ module ApplicationHelper
     end
   end
 
+  # render avatar
+  def render_avatar
+    "https://graph.facebook.com/#{current_user.authorizations.find_by_provider('facebook').uid}/picture?type=large"
+  end
+
   # 顯示最新狀態
   def render_status
     status = current_user.statuses.recent

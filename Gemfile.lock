@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/FunnyQ/auto-facebook.git
-  revision: 03080907984b7a61da70e447c933aebe4f78d6c7
-  specs:
-    auto-facebook (0.01)
-      omniauth
-      omniauth-facebook
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -350,7 +342,6 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  auto-facebook!
   better_errors
   bower-rails
   byebug
