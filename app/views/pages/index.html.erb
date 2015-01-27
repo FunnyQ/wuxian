@@ -19,20 +19,20 @@
 
     <!-- friends status -->
     <div class="global-index-friend-status-wrapper">
-      <h3 class="friend-status-title">好友即時動態</h3>
+      <h3 class="friend-status-title">最新動態</h3>
 
-      <% 5.times.each do |s| %>
+      <% @statuses.each do |s| %>
 
-      <!-- status unit -->
-      <div class="status-unit">
-        <div class="avatar">
-          <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+        <!-- status unit -->
+        <div class="status-unit">
+          <div class="avatar">
+            <%= image_tag render_avatar(s.user), :class => "img-responsive img-circle" %>
+          </div>
+          <div class="content">
+            <span class="name"><%= render_username(s.user) %></span>
+            <p class="status"><%= sanitize(s.content, tags: %w(a)) %></p>
+          </div>
         </div>
-        <div class="content">
-          <span class="name">Tim Cool</span>
-          <p class="status">到幾乎讓人不忍面對的現實女子成長記事之中，這會兒電影沒有讓其他奇幻的或魔法的炫麗搶走莉莉柯林斯</p>
-        </div>
-      </div>
 
       <% end %>
 
