@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'frontend#global_index'
+
+
+  root 'pages#index'
+
+
+  # pages which in developing status
   get '/users/tim_cook' => 'frontend#index', :as => :user_index
   get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
   get '/users/tim_cook/diary/23' => 'frontend#diary_show', :as => :user_diary_show

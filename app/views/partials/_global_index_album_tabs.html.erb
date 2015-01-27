@@ -1,0 +1,48 @@
+<!-- album tabs -->
+<div class="global-index-albums-wrapper">
+
+  <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#hot_album" data-toggle="tab">
+          人氣相簿
+        </a>
+      </li>
+      <li>
+        <a href="#latest_album" data-toggle="tab">
+          最新相簿
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="hot_album">
+
+        <% 3.times.each do |a| %>
+        <!-- album unit -->
+        <a href="#" class="album-unit">
+          <div class="album-cover" style="background-image: url(<%= asset_path 'assets/index-album-cover.jpg' %>);"></div>
+          <div class="album-info">
+            <h4>iPhone 6 / iPhone 6 plus</h4>
+            <span>by Tim Cool</span>
+          </div>
+        </a>
+        <% end %>
+
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="latest_album">
+        <% 3.times.each do |a| %>
+        <!-- album unit -->
+        <a href="#" class="album-unit">
+          <div class="album-cover" style="background-image: url(<%= asset_path 'assets/index-album-cover2.jpg' %>);"></div>
+          <div class="album-info">
+            <h4>生化部隊啟動！</h4>
+            <span>by Tim Cool</span>
+          </div>
+        </a>
+        <% end %>
+      </div>
+    </div>
+
+</div>

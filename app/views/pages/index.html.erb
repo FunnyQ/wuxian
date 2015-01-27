@@ -1,0 +1,117 @@
+<!-- index.html -->
+
+<%= render partial: "partials/hot_news_marquee" %>
+
+<!-- slider, hot albums, latest albums, f-status, ads -->
+<div class="global-index-main-wrapper container">
+
+  <!-- slider + albums -->
+  <div class="global-index-main-col">
+
+    <%= render partial: "partials/global_index_slider" %>
+
+    <%= render partial: "partials/global_index_album_tabs" %>
+
+  </div>
+
+  <!-- status + ads -->
+  <div class="global-index-side-col">
+
+    <!-- friends status -->
+    <div class="global-index-friend-status-wrapper">
+      <h3 class="friend-status-title">好友即時動態</h3>
+
+      <% 5.times.each do |s| %>
+
+      <!-- status unit -->
+      <div class="status-unit">
+        <div class="avatar">
+          <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
+        </div>
+        <div class="content">
+          <span class="name">Tim Cool</span>
+          <p class="status">到幾乎讓人不忍面對的現實女子成長記事之中，這會兒電影沒有讓其他奇幻的或魔法的炫麗搶走莉莉柯林斯</p>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+
+    <!-- ads -->
+    <%= render partial: "partials/ad_widget" %>
+
+  </div>
+
+</div>
+
+<div class="global-index-diaries-wrapper container">
+
+  <div class="global-index-dairies-title">
+    <h3><%= image_tag "assets/index-diary-icon.png" %> 熱門日記</h3>
+  </div>
+
+  <div class="diaries-wrapper">
+    <% 4.times.each do |d| %>
+    <!-- diary unit -->
+    <a href="#" class="diary-unit">
+      <div class="diary-inner-wrapper">
+
+        <!-- diary feature picture -->
+        <div class="diary-cover" style="background-image: url(<%= asset_path 'assets/index-diary-cover.jpg' %>);"></div>
+
+        <!-- diary info -->
+        <div class="diary-info-wrapper">
+          <div class="diary-baku gold-baku">
+            <div class="baku">爆</div>
+            <span class="number"><%= rand(999) %></span>
+          </div>
+          <h4 class="diary-title">Stand by me 哆啦A夢</h4>
+          <div class="diary-subinfo">
+            <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
+          </div>
+          <div class="diary-content">
+            <p>是的，我們總是拿著放大鏡來檢視經典漫畫人物在映畫化之後究竟會再造經典？或者有些太喜歡的角色被搬上大螢幕我們也只是祈求電影不要搞砸就感到滿足，但是對於日本動畫工業，我們應該要放120個心。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% end %>
+  </div>
+</div>
+
+<div class="global-index-business-wrapper container">
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">熱門活動</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">活動名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">最新任務</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover2.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">任務名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="business-actions-wrapper">
+    <h3 class="business-action-title">投票大廳</h3>
+    <div class="business-action-feature-image" style="background-image: url(<%= asset_path 'assets/index-business-action-cover3.jpg' %>);"></div>
+    <div class="business-action-list">
+      <ol>
+        <% 3.times.each do |e| %>
+        <li><a href="#">投票名稱</a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
