@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
     end
+
+    if @user != current_user
+      @user.count_up!
+    end
+
   end
 
 end
