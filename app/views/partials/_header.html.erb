@@ -45,7 +45,7 @@
           <% else %>
             <%= link_to user_index_path do %>
               <div class="site-navi-avatar">
-                <%= image_tag "https://graph.facebook.com/#{current_user.fb_id}/picture?type=large", :class => "img-responsive img-circle" %>
+                <%= image_tag render_avatar, :class => "img-responsive img-circle" %>
               </div>
               <div class="site-navi-username">
                 <span><%= current_user.name %></span>
