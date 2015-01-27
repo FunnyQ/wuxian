@@ -27,17 +27,17 @@ module ApplicationHelper
   end
 
   # render user name
-  def render_username
-    if current_user.nick_name?
-      current_user.nick_name
+  def render_username(user = current_user)
+    if user.nick_name?
+      user.nick_name
     else
-      current_user.real_name
+      user.real_name
     end
   end
 
   # 顯示最新狀態
-  def render_status
-    status = current_user.statuses.recent
+  def render_status(user = current_user)
+    status = user.statuses.recent
     if status.present?
       simple_format(status.first.content)
     else
