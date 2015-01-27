@@ -37,9 +37,9 @@ module ApplicationHelper
 
   # 顯示最新狀態
   def render_status(user = current_user)
-    status = user.statuses.recent
+    status = user.statuses.latest
     if status.present?
-      simple_format(status.first.content)
+      sanitize(status.content, tags: %w(a div))
     else
       " [ 目前還沒有狀態 :< ]"
     end
@@ -47,9 +47,9 @@ module ApplicationHelper
 
   # 顯示狀態發表時間
   def render_status_publish_time
-    status = current_user.statuses.recent
+    status = current_user.statuses.latest
     if status.present?
-      time_ago_in_words(status.first.created_at) + "前"
+      time_ago_in_words(status.created_at) + "前"
     else
       "昨天 19:31"
     end
