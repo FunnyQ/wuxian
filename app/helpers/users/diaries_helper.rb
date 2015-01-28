@@ -39,6 +39,14 @@ module Users::DiariesHelper
     end
   end
 
+  def get_diary_featured_img_url(diary)
+    if diary.featured_img? # has featured image
+      diary.featured_img.url
+    else
+      "http://placehold.it/1920x960&text=no+pic"
+    end
+  end
+
   def render_diary_summary(diary, length)
     simple_format(truncate(diary.content, :length => length,  :separator => ''))
   end

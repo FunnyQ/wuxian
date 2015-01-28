@@ -3,7 +3,7 @@
   <div class="diary-inner-wrapper">
 
     <!-- diary feature picture -->
-    <div class="diary-cover" style="background-image: url(<%= diary.featured_img.url %>);"></div>
+    <div class="diary-cover" style="background-image: url(<%= get_diary_featured_img_url(diary) %>);"></div>
 
     <!-- diary info -->
     <div class="diary-info-wrapper">
