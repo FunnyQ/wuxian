@@ -15,7 +15,9 @@
 
     <!-- 附加訊息 -->
     <div class="user-diary-subinfo">
-      <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span>　<span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
+      <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span>
+      <span>　<%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
+      <span>  <i class="fa fa-comments fa-lg"></i><%= link_to "", user_diary_path(user, diary)+"#disqus_thread" %></span>
     </div>
 
     <!-- 標籤 -->
@@ -33,7 +35,7 @@
   </div>
 
   <div class="read-more-btn">
-    <%= link_to '看全文〉', user_diary_path(user, diary.id), :class => "more" %>
+    <%= link_to '看全文〉', user_diary_path(user, diary), :class => "more" %>
   </div>
 
 </div>
