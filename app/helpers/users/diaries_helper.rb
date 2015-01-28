@@ -7,6 +7,12 @@ module Users::DiariesHelper
     end
   end
 
+  def render_edit_diary_btn(user)
+    if user == current_user
+      render "edit_diary_btn"
+    end
+  end
+
   def render_diary_summary(diary)
     simple_format(truncate(diary.content, :length => 500,  :separator => ''))
   end

@@ -1,5 +1,12 @@
 .user-diaries-wrapper
   margin-top: 30px
+
+.diary-new, .diary-edit
+  +sassy-button("flat", 0, $fz-s, $c-album-new)
+  padding: 10px 20px
+  &:hover
+    color: $c-white
+
 .user-diary-wrapper, .user-diary-detail-wrapper
   @extend %user-sidebar-block-shadow
   @extend %block-hover-effect
@@ -9,6 +16,10 @@
   background-color: $c-user-sidebar-bg
   .user-diary-baku
     @extend %baku
+  .user-diary-edit-btn-wrapper
+    position: absolute
+    right: 20px
+    top: 20px
 
   .user-diary-info-wrapper
     padding-left: 70px
