@@ -34,23 +34,19 @@
 
         <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
 
-        <% if user_signed_in? %>
-          <!-- 使用者狀態更新表單 -->
-          <%= render :partial => "partials/user_status_message_form", locals: {user: @user, status: @status} %>
-        <% end %>
-
         <div class="flash-message-wrapper">
           <%= render partial: "partials/flash_message" %>
         </div>
+
+        <!-- 使用者狀態更新表單 -->
+        <%= render_status_update_form(@user, @status) %>
 
         <!-- 使用者狀態留言欄位 -->
         <%= render :partial => "partials/user_status_message", locals: {user: @user} %>
 
         <!-- 日記區塊 -->
         <div class="user-diaries-wrapper">
-          <% 3.times.each do |d| %>
-            <%= render :partial => "partials/user_diary", locals: {user: @user, id: 1} %>
-          <% end %>
+          <%= render :partial => "partials/user_diary", locals: {user: @user, id: 1} %>
         </div>
 
         <!-- 相簿部分列表 -->

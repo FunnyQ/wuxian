@@ -10,6 +10,10 @@ class Users::DiariesController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
+    if @user != current_user
+      redirect_to root_path
+      flash[:alert] = "自己的日記自己寫！"
+    end
     @diary = @user.diaries.new
   end
 
