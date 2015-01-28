@@ -15,9 +15,12 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime
 #  updated_at             :datetime
-#  fb_id                  :string(20)
-#  token                  :string
-#  name                   :string
+#  real_name              :string
+#  nick_name              :string
+#  mobile_phone           :string
+#  location               :string
+#  level                  :integer          default("1"), not null
+#  viewed                 :integer          default("1"), not null
 #
 
 class User < ActiveRecord::Base
@@ -29,6 +32,7 @@ class User < ActiveRecord::Base
 
   has_many :statuses
   has_many :authorizations, dependent: :destroy
+  has_many :diaries, dependent: :destroy
 
   extend OmniauthCallbacks
 

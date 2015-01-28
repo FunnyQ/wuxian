@@ -8,4 +8,18 @@ class Users::DiariesController < ApplicationController
 
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
+
+  private
+
+    def diary_params
+      params.require(:diary).permit(:title, :content, :featured_img, :location)
+    end
+
 end
