@@ -46,7 +46,9 @@
 
         <!-- 日記區塊 -->
         <div class="user-diaries-wrapper">
-          <%= render :partial => "partials/user_diary", locals: {user: @user, id: 1} %>
+          <% @diaries.each do |diary| %>
+            <%= render :partial => "partials/user_diary", locals: {user: @user, diary: diary} %>
+          <% end %>
         </div>
 
         <!-- 相簿部分列表 -->

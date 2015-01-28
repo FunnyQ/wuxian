@@ -7,4 +7,16 @@ module Users::DiariesHelper
     end
   end
 
+  def render_diary_summary(diary)
+    simple_format(truncate(diary.content, :length => 500,  :separator => ''))
+  end
+
+  def render_diary_publish_time(diary)
+    time_ago_in_words(diary.created_at) + "前"
+  end
+
+  def render_diary_content(diary)
+    simple_format(diary.content)
+  end
+
 end
