@@ -39,3 +39,11 @@ $(document).on "ready page:load", ->
     controls: false
     auto: true
     pause: 5000
+
+# adding transitions to page change with turbolinks
+#
+# document.addEventListener 'page:change', ->
+#   document.getElementById('primary-content').className += 'animated fadeIn'
+
+# document.addEventListener 'page:fetch', ->
+#   document.getElementById('primary-content').className += 'animated fadeOut'

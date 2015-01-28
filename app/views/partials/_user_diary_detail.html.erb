@@ -1,21 +1,26 @@
 <!-- 單則日記 -->
 <div class="user-diary-detail-wrapper">
 
+  <div class="user-diary-edit-btn-wrapper">
+    <%= render_edit_diary_btn(@user) %>
+    <%= render_delete_diary_btn(@user) %>
+  </div>
+
   <!-- 推爆等級 -->
   <div class="user-diary-baku gold-baku">
     <div class="baku">爆</div>
-    <span class="number"><%= rand(999) %></span>
+    <span class="number"><%= diary.viewed %></span>
   </div>
 
   <!-- 標題與其他訊息 -->
   <div class="user-diary-info-wrapper">
 
     <!-- 標題 -->
-    <h4 class="user-diary-title">《真愛繞圈圈》</h4>
+    <h4 class="user-diary-title"><%= diary.title %></h4>
 
     <!-- 附加訊息 -->
     <div class="user-diary-subinfo">
-      <span class="timestamp">昨天 19:31</span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter rand(9999), :delimiter => ',' %>）</span>
+      <span class="timestamp"><%= render_diary_publish_time(diary) %></span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
     </div>
 
     <!-- 標籤 -->
@@ -28,10 +33,7 @@
   </div>
 
   <div class="user-diary-content">
-    <p>《真愛繞圈圈》是莉莉柯林斯重新出發，從學生演到少婦的當代都會愛情故事，有別於《天使聖物：骸骨之城》的奇幻愛情冒險電影，《真愛繞圈圈》很務實，在務實到幾乎讓人不忍面對的現實女子成長記事之中，這會兒電影沒有讓其他奇幻的或魔法的炫麗搶走莉莉柯林斯的美麗神采，專心地好好聚焦在莉莉的臉上，終於讓影迷「莉莉柯林斯看到飽」，並且幾乎是每一分每一秒都由莉莉撐完整場電影，如果這樣都還無法讓這位甜姐兒風靡全世界，那影壇上還有什麼讓人期待的趣事可言？</p>
-    <%= image_tag "assets/diary-pic01.jpg" %>
-    <p>看了電影以後也的確印證了這套公式的確不會出錯，但《真愛繞圈圈》沒打算讓一個人一直守候著另一個人，而是兩個人不斷地在對方有伴時發現自己愛他/她，又在對方沒伴時自己有伴（喂！～）錯過來又錯過去的，竟然也就十幾年過去了。</p>
-    <%= image_tag "assets/diary-pic02.jpg" %>
+    <%= render_diary_content(diary) %>
   </div>
 
   <!-- disqus plugin -->
