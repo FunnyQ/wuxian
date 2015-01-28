@@ -1,11 +1,15 @@
 .user-diaries-wrapper
   margin-top: 30px
 
-.diary-new, .diary-edit
+.diary-new, .diary-edit, .diary-delete
   +sassy-button("flat", 0, $fz-s, $c-album-new)
   padding: 10px 20px
-  &:hover
+  &:hover, &:focus
     color: $c-white
+    text-decoration: none
+.diary-delete
+  +sassy-button("flat", 0, $fz-s, lighten($c-dark-grey, 25))
+  padding: 10px 20px
 
 .user-diary-wrapper, .user-diary-detail-wrapper
   @extend %user-sidebar-block-shadow
