@@ -27,6 +27,15 @@
 
     <!-- 日記區塊 -->
     <div class="user-diaries-wrapper">
+
+      <!-- 相簿選單欄位 -->
+      <div class="album-create-options">
+
+        <!-- 新增日記 -->
+        <%= link_to new_user_diary_path, class: "album-new" do %>
+          <i class="fa fa-plus"></i> 新增日記
+        <% end %>
+      </div>
       <% 5.times.each do |d| %>
         <%= render :partial => "partials/user_diary", locals: {user: @user, id: 1} %>
       <% end %>

@@ -49,7 +49,7 @@
         <!-- 日記區塊 -->
         <div class="user-diaries-wrapper">
           <% 3.times.each do |d| %>
-            <%= render :partial => "partials/user_diary" %>
+            <%= render :partial => "partials/user_diary", locals: {user: @user, id: 1} %>
           <% end %>
         </div>
 
