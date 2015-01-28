@@ -3,11 +3,13 @@ class Users::DiariesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @diaries = @user.diaries.all.recent
+    @latest_diaries = @user.diaries.get_latest(4)
   end
 
   def show
     @diary = Diary.find(params[:id])
     @user = @diary.user
+    @latest_diaries = @user.diaries.get_latest(4)
 
     if @user != current_user
       @diary.count_up!

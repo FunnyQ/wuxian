@@ -46,7 +46,7 @@
     </div>
 
     <!-- 最新網誌 -->
-    <%= render :partial => "partials/user_diary_latest_list" %>
+    <%= render :partial => "partials/user_diary_latest_list", locals: {diaries: @latest_diaries} %>
 
     <!-- 最新留言 -->
     <%= render :partial => "partials/user_diary_comments_list" %>
