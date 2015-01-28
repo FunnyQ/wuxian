@@ -18,6 +18,7 @@ class Users::DiariesController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
+    @latest_diaries = @user.diaries.get_latest(4)
     if @user != current_user
       redirect_to root_path
       flash[:alert] = "自己的日記自己寫！"
@@ -40,6 +41,7 @@ class Users::DiariesController < ApplicationController
   def edit
     @diary = Diary.find(params[:id])
     @user = @diary.user
+    @latest_diaries = @user.diaries.get_latest(4)
     if @user != current_user
       redirect_to root_path
       flash[:alert] = "自己的日記自己寫！"

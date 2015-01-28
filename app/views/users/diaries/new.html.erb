@@ -10,7 +10,7 @@
     <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
 
     <!-- 最新網誌 -->
-    <%= render :partial => "partials/user_diary_latest_list", locals: {user: @user} %>
+    <%= render :partial => "partials/user_diary_latest_list", locals: {diaries: @latest_diaries} %>
 
     <!-- 最新留言 -->
     <%= render :partial => "partials/user_diary_comments_list", locals: {user: @user} %>

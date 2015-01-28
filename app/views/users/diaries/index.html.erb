@@ -25,7 +25,9 @@
 
     <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
 
-    <%= render partial: "partials/flash_message" %>
+    <div class="user-diaries-index-flash">
+      <%= render partial: "partials/flash_message" %>
+    </div>
 
     <!-- 日記區塊 -->
     <div class="user-diaries-wrapper">
