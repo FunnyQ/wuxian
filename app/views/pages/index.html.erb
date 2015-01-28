@@ -24,6 +24,7 @@
       <% @statuses.each do |s| %>
 
         <!-- status unit -->
+        <%= link_to user_path(s.user) do %>
         <div class="status-unit">
           <div class="avatar">
             <%= image_tag render_avatar(s.user), :class => "img-responsive img-circle" %>
@@ -33,6 +34,7 @@
             <p class="status"><%= sanitize(s.content, tags: %w(a)) %></p>
           </div>
         </div>
+        <% end %>
 
       <% end %>
 

@@ -9,7 +9,7 @@
       </span>
     </div>
 
-    <%= form_for current_user.statuses.new do |f| %>
+    <%= form_for status, remote: true do |f| %>
       <div class="textarea-wrapper">
         <%= f.text_area :content, :class => "form-control", :placeholder => "想說些什麼？", :row => 3 %>
       </div>

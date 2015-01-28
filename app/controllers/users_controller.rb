@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       @user.count_up!
     end
 
+    @status = @user.statuses.new
+
   end
 
 end
