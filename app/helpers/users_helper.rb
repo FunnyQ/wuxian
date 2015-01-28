@@ -2,7 +2,7 @@ module UsersHelper
 
   # render avatar
   def render_avatar(user = current_user)
-    "https://graph.facebook.com/#{user.authorizations.find_by_provider('facebook').uid}/picture?type=large"
+    "https://graph.facebook.com/#{user.authorizations.find_by_provider('facebook').uid}/picture?height=300&width=300"
   end
 
   # render user name
@@ -22,6 +22,12 @@ module UsersHelper
   # render user viewd count
   def render_viewed_count(user = current_user)
     user.viewed
+  end
+
+  def render_status_update_form(user, status)
+    if user == current_user
+      render :partial => "partials/user_status_message_form", locals: {user: user, status: status}
+    end
   end
 
   # 顯示最新狀態

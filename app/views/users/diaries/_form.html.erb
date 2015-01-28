@@ -1,0 +1,25 @@
+<%= form_for [@user, @diary] do |diary| %>
+
+  <!-- title -->
+  <div class="form-group">
+    <%= diary.label :title, "日記標題" %>
+    <%= diary.text_field :title, :class => "form-control", :placeholder => "今天想記錄些什麼呢？" %>
+  </div>
+
+  <!-- featured_img -->
+  <div class="form-group">
+    <%= diary.label :featured_img, "特色照片" %>
+    <%= diary.file_field :featured_img, :class => "form-control" %>
+    <p class="help-block">可以上傳一張圖片當做日記封面喔！</p>
+  </div>
+
+  <!-- content -->
+  <div class="form-group">
+    <%= diary.label :content, "日記內容" %>
+    <%= diary.text_area :content, :class => "form-control", rows: 15, :placeholder => "寫下你的想法吧！" %>
+  </div>
+
+  <%= diary.button :class => "btn btn-primary pull-right" do %>
+    送出日記 <i class="fa fa-pencil"></i>
+  <% end %>
+<% end %>

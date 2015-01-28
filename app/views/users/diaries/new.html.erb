@@ -1,0 +1,38 @@
+<!-- index.html -->
+<%= render :partial => "partials/user_cover", locals: {user: @user} %>
+
+<div class="user-main-content container">
+
+  <!-- 側邊資訊欄位 -->
+  <div class="user-sidebar">
+
+    <!-- 使用者資料卡，包含社交按鈕 -->
+    <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
+
+    <!-- 最新網誌 -->
+    <%= render :partial => "partials/user_diary_latest_list", locals: {user: @user} %>
+
+    <!-- 最新留言 -->
+    <%= render :partial => "partials/user_diary_comments_list", locals: {user: @user} %>
+
+    <!-- 廣告欄位 -->
+    <%= render :partial => "partials/ad_widget" %>
+
+  </div>
+
+  <!-- 主要資料欄位 -->
+  <div class="user-main">
+
+    <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
+
+    <%= render partial: "partials/flash_message" %>
+
+    <!-- 日記區塊 -->
+    <div class="user-diaries-wrapper">
+
+      <%= render 'form' %>
+
+    </div>
+
+  </div>
+</div>

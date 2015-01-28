@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127163940) do
+ActiveRecord::Schema.define(version: 20150128030037) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20150127163940) do
   end
 
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
+
+  create_table "diaries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.string   "featured_img"
+    t.integer  "viewed",       default: 1, null: false
+    t.string   "location"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "diaries", ["user_id"], name: "index_diaries_on_user_id"
 
   create_table "statuses", force: :cascade do |t|
     t.text     "content"

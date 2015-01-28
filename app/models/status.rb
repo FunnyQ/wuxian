@@ -14,6 +14,7 @@ class Status < ActiveRecord::Base
 
   validates :content, presence: true
 
+  scope :recent, -> {order("created_at DESC")}
   scope :latest, -> {self.last}
-  scope :get_latest, -> {self.last(5).reverse}
+  scope :get_latest, ->(n) {self.recent.limit(n)}
 end
