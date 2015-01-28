@@ -1,0 +1,57 @@
+<!-- index.html -->
+<%= render :partial => "partials/user_cover" %>
+
+<div class="user-main-content container">
+
+  <!-- 側邊資訊欄位 -->
+  <div class="user-sidebar">
+
+    <!-- 使用者資料卡，包含社交按鈕 -->
+    <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
+
+  </div>
+
+  <!-- 主要資料欄位 -->
+  <div class="user-main">
+
+    <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
+
+  </div>
+
+</div>
+
+
+<div class="show-diary-wrapper container">
+  <!-- 日記顯示欄位 -->
+  <div class="show-diary-main-content-wrapper">
+
+    <!-- 狀態數值 -->
+    <%= render :partial => "partials/user_status_info", locals: {user: @user} %>
+
+    <!-- 日記本體 -->
+    <%= render :partial => "partials/user_diary_detail", locals: {diary: @diary} %>
+  </div>
+
+  <!-- 日記頁面側邊條 -->
+  <div class="show-diary-widget-wrapper">
+
+    <!-- 地圖 -->
+    <div class="diary-map-wrapper">
+      <div class="title-wrapper">
+        <h3 class="title">地圖</h3>
+      </div>
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.4064363278458!2d121.52560100000001!3d25.054210000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a967d4e4a273%3A0xbd774a19e33a3e46!2z5qyj5qyjLeengOazsOW9seWfjg!5e0!3m2!1szh-TW!2stw!4v1420005343356" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+      </div>
+    </div>
+
+    <!-- 最新網誌 -->
+    <%= render :partial => "partials/user_diary_latest_list" %>
+
+    <!-- 最新留言 -->
+    <%= render :partial => "partials/user_diary_comments_list" %>
+
+    <!-- 廣告欄位 -->
+    <%= render :partial => "partials/ad_widget" %>
+  </div>
+</div>

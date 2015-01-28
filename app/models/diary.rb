@@ -19,4 +19,10 @@ class Diary < ActiveRecord::Base
   scope :recent, -> {order("created_at DESC")}
   scope :latest, -> {self.latest}
   scope :get_latest, -> (n) {self.recent.limit(n)}
+
+  def count_up!
+    self.viewed += 1
+    self.save
+  end
+
 end

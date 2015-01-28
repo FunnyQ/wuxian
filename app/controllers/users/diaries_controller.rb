@@ -6,7 +6,12 @@ class Users::DiariesController < ApplicationController
   end
 
   def show
+    @diary = Diary.find(params[:id])
+    @user = @diary.user
 
+    if @user != current_user
+      @diary.count_up!
+    end
   end
 
   def new
