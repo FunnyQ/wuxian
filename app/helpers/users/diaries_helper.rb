@@ -19,8 +19,28 @@ module Users::DiariesHelper
     end
   end
 
-  def render_diary_summary(diary)
-    simple_format(truncate(diary.content, :length => 500,  :separator => ''))
+  def render_diary_featured_img(diary, size = "original")
+    if diary.featured_img? # has featured image
+
+      # render requested version
+      if size == "thumb"
+        image_tag diary.featured_img.thumb.url, class: "featured-img img-responsive"
+      else
+        image_tag diary.featured_img.url, class: "featured-img img-responsive"
+      end
+
+    else # has no featured image
+
+      # render placeholder
+      if size == "thumb"
+        image_tag 'http://placehold.it/100x100&text=no+pic', class: "featured-img img-responsive"
+      end
+
+    end
+  end
+
+  def render_diary_summary(diary, length)
+    simple_format(truncate(diary.content, :length => length,  :separator => ''))
   end
 
   def render_diary_publish_human_time(diary)
