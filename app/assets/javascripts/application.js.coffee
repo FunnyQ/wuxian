@@ -5,7 +5,9 @@
 #
 # *************************************
 #= require _plugins
-$ ->
+
+# run codes after page loaded with turbolinks
+$(document).on "ready page:load", ->
 
   # hot news marquee
   $(".hot-news-content").marquee
@@ -37,10 +39,3 @@ $ ->
     controls: false
     auto: true
     pause: 5000
-
-
-
-
-# turbolink 用
-$(document).on "ready page:change", ->
-
