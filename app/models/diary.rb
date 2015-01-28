@@ -15,4 +15,8 @@
 
 class Diary < ActiveRecord::Base
   belongs_to :user
+
+  scope :recent, -> {order("created_at DESC")}
+  scope :latest, -> {self.latest}
+  scope :get_latest, -> (n) {self.recent.limit(n)}
 end
