@@ -15,7 +15,7 @@
       </div>
       <div class="options-wrapper">
         <div class="submit-btn">
-          <%= button_to statuses_path, :method => "post" do %>
+          <%= button_to statuses_path, :method => "post", data: { no_turbolink: true } do %>
             <i class="fa fa-edit"></i> 發表
           <% end %>
         </div>

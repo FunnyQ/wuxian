@@ -9,11 +9,20 @@ class Users::DiariesController < ApplicationController
   end
 
   def new
-
+    @user = User.find(params[:user_id])
+    @diary = @user.diaries.new
   end
 
   def create
-
+    @user = User.find(params[:user_id])
+    @diary = @user.diaries.new(diary_params)
+    if @diary.save
+      redirect_to user_diaries_path(@user)
+      flash[:notice] = "成功寫下一篇日記囉！"
+    else
+      render :new
+      flash[:alert] = "Oops，請您檢查日記欄位後再試一次 :P"
+    end
   end
 
   private
