@@ -15,7 +15,7 @@
 
     <!-- 附加訊息 -->
     <div class="user-diary-subinfo">
-      <span class="timestamp"><%= render_diary_publish_time(diary) %></span>　<span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
+      <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span>　<span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
     </div>
 
     <!-- 標籤 -->
@@ -28,7 +28,8 @@
   </div>
 
   <div class="user-diary-content">
-    <%= render_diary_summary(diary) %>
+    <%= render_diary_featured_img(diary) %>
+    <%= render_diary_summary(diary, 250) %>
   </div>
 
   <div class="read-more-btn">
