@@ -1,3 +1,9 @@
-<%= link_to user_diary_path, class: "diary-delete", method: "delete", :data => {confirm: "您確定要刪除這篇日記嗎？"} do %>
+<%= link_to user_diary_path, class: "diary-delete", method: "delete", data: {
+                                                                                confirm: "您確定要刪除這篇日記嗎？",
+                                                                                :'confirm-button-text' => '確定刪除',
+                                                                                :'cancel-button-text' => '取消',
+                                                                                :'sweet-alert-type' => 'warning',
+                                                                                text: '這個動作無法復原喔！'
+                                                                                } do %>
   <i class="fa fa-close"></i> 刪除日記
 <% end %>

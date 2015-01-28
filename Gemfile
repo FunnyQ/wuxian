@@ -81,3 +81,4 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'settingslogic'
+gem 'sweet-alert-confirm', '~> 0.1.0'
