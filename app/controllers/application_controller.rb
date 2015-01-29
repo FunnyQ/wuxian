@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
     def after_sign_in_path_for(resource)
-      if resource.sign_in_count == 1
+      if resource.is_new_user == true
          edit_user_registration_path
       else
          user_path(current_user)

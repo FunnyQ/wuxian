@@ -2,7 +2,7 @@ module UsersHelper
 
   # render edit user registrations form
   def render_edit_user_form(user)
-    if user.sign_in_count == 1
+    if user.is_new_user == true
       render partial: "first_time_form"
     else
       render partial: "normal_form"

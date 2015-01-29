@@ -47,4 +47,9 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def not_new_user
+    self.is_new_user = false
+    self.save
+  end
+
 end

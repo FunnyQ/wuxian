@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   # routes for devise, :skip => [:sessions] can skip routes for sessions controller.
   devise_for :users, skip: [], controllers: {
                                         omniauth_callbacks: "users/omniauth_callbacks",
-                                        registrations: "users/registrations"
+                                        registrations: "users/registrations",
                                       }
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+
 
 
 
