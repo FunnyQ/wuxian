@@ -28,6 +28,11 @@
     <!-- 狀態數值 -->
     <%= render :partial => "partials/user_status_info", locals: {user: @user} %>
 
+    <div class="user-diary-edit-btn-wrapper">
+      <%= render_edit_diary_btn(@user) %>
+      <%= render_delete_diary_btn(@user) %>
+    </div>
+
     <!-- 日記本體 -->
     <%= render :partial => "partials/user_diary_detail", locals: {diary: @diary} %>
   </div>
