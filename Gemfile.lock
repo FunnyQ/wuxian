@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/capistrano/rbenv.git
+  revision: 79a87746e366651de4a3034c17db6aec9604ffc0
+  specs:
+    capistrano-rbenv (2.0.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +69,16 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     callsite (0.0.11)
+    capistrano (3.1.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.1.2)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -88,6 +106,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colored (1.2)
+    colorize (0.7.5)
     columnize (0.9.0)
     compass (1.0.1)
       chunky_png (~> 1.2)
@@ -190,6 +209,9 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nenv (0.1.1)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -318,6 +340,10 @@ GEM
       activesupport (>= 4.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.10)
+    sshkit (1.6.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     sweet-alert (0.0.7)
     sweet-alert-confirm (0.1.0)
       jquery-rails
@@ -354,6 +380,10 @@ DEPENDENCIES
   bower-rails
   bullet
   byebug
+  capistrano (~> 3.1.0)
+  capistrano-bundler (~> 1.1.2)
+  capistrano-rails (~> 1.1.1)
+  capistrano-rbenv!
   capybara
   capybara-screenshot
   carrierwave
