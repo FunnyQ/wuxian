@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :statuses
+  has_many :statuses, dependent: :destroy
   has_many :authorizations, dependent: :destroy
   has_many :diaries, dependent: :destroy
 
@@ -44,6 +44,11 @@ class User < ActiveRecord::Base
 
   def count_up!
     self.viewed += 1
+    self.save
+  end
+
+  def not_new_user
+    self.is_new_user = false
     self.save
   end
 

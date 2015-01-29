@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
   private
 
     def after_sign_in_path_for(resource)
-      user_path(current_user)
+      if resource.is_new_user == true
+         edit_user_registration_path
+      else
+         root_path
+      end
+    end
+
+    def after_update_path_for(resource)
+      user_path(resource)
     end
 
 end
