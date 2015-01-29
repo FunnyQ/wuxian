@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -19,28 +19,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
     # required for settings form to submit when password is left blank
     if params[:user][:password].blank?
       params[:user].delete("password")
       params[:user].delete("password_confirmation")
     end
 
-    @user = User.find(current_user.id)
+    @user_id = current_user.id
+    @user = User.find(@user_id)
     if @user.is_new_user == true
       if @user.update_attributes(user_params)
         @user.not_new_user
-        set_flash_message :notice, :updated
-        # Sign in the user bypassing validation in case his password changed
-        sign_in(@user, :bypass => true)
         flash[:notice] = '謝謝您，資料已經更新'
-        redirect_to root_path
+
+        old_user = User.find(@user_id)
+        sign_in(old_user, :bypass => true)
+
+        redirect_to user_path(@user)
       else
-        # render "edit"
+        render :edit
       end
     else
       @user.update_with_password(user_params)
-      sign_in(current_user, :bypass => true)
+      sign_in(@user, :bypass => true)
     end
 
     # email_changed = @user.email != params[:user][:email]
@@ -96,9 +97,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # You can put the params you want to permit in the empty array.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update){ |u| u.permit(:nick_name, :location, :password, :password_confirmation) }
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.for(:account_update){ |u| u.permit(:nick_name,:mobile_phone, :location, :password, :password_confirmation, :current_password) }
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

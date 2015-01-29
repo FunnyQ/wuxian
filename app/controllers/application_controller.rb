@@ -9,8 +9,12 @@ class ApplicationController < ActionController::Base
       if resource.is_new_user == true
          edit_user_registration_path
       else
-         user_path(current_user)
+         root_path
       end
+    end
+
+    def after_update_path_for(resource)
+      user_path(resource)
     end
 
 end
