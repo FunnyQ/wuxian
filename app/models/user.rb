@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :statuses
+  has_many :statuses, dependent: :destroy
   has_many :authorizations, dependent: :destroy
   has_many :diaries, dependent: :destroy
 
