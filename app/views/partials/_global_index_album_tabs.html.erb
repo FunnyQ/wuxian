@@ -20,27 +20,27 @@
       <div role="tabpanel" class="tab-pane fade in active" id="hot_album">
 
         <% @hot_albums.each do |album| %>
-        <!-- album unit -->
-        <a href="#" class="album-unit">
-          <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
-          <div class="album-info">
-            <h4><%= render_album_title(album) %></h4>
-            <span>by <%= render_username(album.user) %></span>
-          </div>
-        </a>
+          <!-- album unit -->
+          <%= link_to user_album_path(album.user, album), class: "album-unit" do %>
+            <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
+            <div class="album-info">
+              <h4><%= render_album_title(album) %></h4>
+              <span>by <%= render_username(album.user) %></span>
+            </div>
+          <% end %>
         <% end %>
 
       </div>
       <div role="tabpanel" class="tab-pane fade" id="latest_album">
         <% @latest_albums.each do |album| %>
-        <!-- album unit -->
-        <a href="#" class="album-unit">
-          <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
-          <div class="album-info">
-            <h4><%= render_album_title(album) %></h4>
-            <span>by <%= render_username(album.user) %></span>
-          </div>
-        </a>
+          <!-- album unit -->
+          <%= link_to user_album_path(album.user ,album), class: "album-unit" do %>
+            <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
+            <div class="album-info">
+              <h4><%= render_album_title(album) %></h4>
+              <span>by <%= render_username(album.user) %></span>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

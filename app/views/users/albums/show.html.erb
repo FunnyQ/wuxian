@@ -44,6 +44,10 @@
       </ul>
     </div>
 
+    <div class="album-disqus-wrapper">
+      <%= render partial: "partials/disqus_thread", locals: {object: @album, user: @user} %>
+    </div>
+
   </div>
 
 </div>
