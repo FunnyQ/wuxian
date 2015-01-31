@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131084650) do
+ActiveRecord::Schema.define(version: 20150131120130) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "description", limit: 255
+    t.integer  "viewed",      limit: 4
+    t.integer  "photo_count", limit: 4
+    t.integer  "cover_id",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   limit: 255
@@ -42,6 +52,18 @@ ActiveRecord::Schema.define(version: 20150131084650) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.string   "file",        limit: 255
+    t.integer  "album_id",    limit: 4
+    t.integer  "viewed",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -79,5 +101,6 @@ ActiveRecord::Schema.define(version: 20150131084650) do
 
   add_foreign_key "authorizations", "users"
   add_foreign_key "diaries", "users"
+  add_foreign_key "photos", "albums"
   add_foreign_key "statuses", "users"
 end
