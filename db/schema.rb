@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129034139) do
+ActiveRecord::Schema.define(version: 20150131084650) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   limit: 255
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20150129034139) do
   end
 
   add_index "diaries", ["user_id"], name: "index_diaries_on_user_id", using: :btree
+
+  create_table "guestbooks", force: :cascade do |t|
+    t.integer  "visitor_id", limit: 4
+    t.integer  "host_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "statuses", force: :cascade do |t|
     t.text     "content",    limit: 65535

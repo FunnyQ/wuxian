@@ -3,12 +3,13 @@
   <span class="more">看更多〉</span>
   <div class="visitor-list">
     <ul>
-      <% 16.times.each do |visitor| %>
+      <% @guestbook.each do |record| %>
       <li>
-        <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
-        <span>Tim Cook</span>
+        <%= image_tag render_avatar(record.visitor), :class => "img-responsive img-circle" %>
+        <span><%= render_username(record.visitor) %></span>
       </li>
       <% end %>
     </ul>
   </div>
 </div>
+
