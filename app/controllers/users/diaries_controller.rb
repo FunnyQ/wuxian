@@ -21,7 +21,8 @@ class Users::DiariesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @latest_diaries = @user.diaries.get_latest(4)
-    if @user != current_user
+
+    if !user_signed_in? || @user != current_user
       redirect_to root_path
       flash[:alert] = "自己的日記自己寫！"
     end

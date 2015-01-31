@@ -1,0 +1,49 @@
+<!-- index.html -->
+<%= render :partial => "partials/user_cover" %>
+
+<div class="user-main-content container">
+
+  <!-- 側邊資訊欄位 -->
+  <div class="user-sidebar">
+
+    <!-- 使用者資料卡，包含社交按鈕 -->
+    <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
+
+  </div>
+
+  <!-- 主要資料欄位 -->
+  <div class="user-main">
+
+    <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
+
+  </div>
+
+  <!-- 相簿內容 -->
+  <div class="user-albums-wrapper">
+
+    <!-- 相簿選單欄位 -->
+    <div class="album-create-options">
+
+      <!-- 新增相簿 -->
+      <%= render_new_photos_btn(@user) %>
+    </div>
+
+    <!-- 照片列表 -->
+    <div class="all-pics">
+      <h3 class="title"><i class="fa fa-photo"></i> 相簿標題 (32)</h3>
+      <ul>
+        <% @photos.each do %>
+          <li class="photo-unit">
+            <div class="photo-frame" style="-webkit-transform: rotate(<%= rand(-1.5..1.5) %>deg);">
+              <%= link_to "#" do %>
+                <%= image_tag 'http://placehold.it/800x600', :class => "img-responsive" %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+</div>

@@ -6,15 +6,15 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-
-
-
+  # setting root to global index page
   root 'pages#index'
 
+  # user can use their nick name as personal url ## TODO ## deal with spaceses.
   get '/:nick_name' => 'users#show', as: :user_index
 
   resources :users, only: [:show] do
     resources :diaries, module: 'users'
+    resources :albums, module: 'users'
   end
 
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # get '/users/tim_cook' => 'frontend#index', :as => :user_index
   # get '/users/tim_cook/diaries' => 'frontend#diaries_index', :as => :user_diaries
   # get '/users/tim_cook/diary/23' => 'frontend#diary_show', :as => :user_diary_show
-  get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums
+  # get '/users/tim_cook/albums' => 'frontend#albums_index', :as => :user_albums
   get '/users/tim_cook/albums/17' => 'frontend#album_show', :as => :user_album_show
 
   resources :statuses, :only => [:create]

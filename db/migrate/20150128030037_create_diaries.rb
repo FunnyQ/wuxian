@@ -5,7 +5,7 @@ class CreateDiaries < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.string :featured_img
-      t.integer :viewed, null: false, default: 1
+      t.integer :viewed, null: false, default: 0
       t.string :location
 
       t.timestamps null: false

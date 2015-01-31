@@ -31,12 +31,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  # for user status function
   has_many :statuses, dependent: :destroy
+
+  # for oauth authorization
   has_many :authorizations, dependent: :destroy
+
+  # for user diary function
   has_many :diaries, dependent: :destroy
 
-  has_many :guestbooks, :foreign_key => 'host_id'
+  #for guestbook, a.k.a. who comes my page?
+  has_many :guestbooks, :foreign_key => 'host_id', dependent: :destroy
   has_many :visitors , through: :guestbooks
+
+  # album function
+  has_many :albums, dependent: :destroy
+  has_many :photos, through: :albums
 
   extend OmniauthCallbacks
 
