@@ -40,6 +40,27 @@ $(document).on "ready page:load", ->
     auto: true
     pause: 5000
 
+# $(document).on "ready page:change", ->
+
+#     s = document.createElement("script")
+#     s.async = true
+#     s.type = "text/javascript"
+#     s.src = "//" + disqus_shortname + ".disqus.com/count.js"
+#     (document.getElementsByTagName("HEAD")[0] or document.getElementsByTagName("BODY")[0]).appendChild s
+#     return
+#     # * * Disqus Reset Function * *
+#     reset = (newIdentifier, newUrl, newTitle, newLanguage) ->
+#       DISQUS.reset
+#         reload: true
+#         config: ->
+#           @page.identifier = newIdentifier
+#           @page.url = newUrl
+#           @page.title = newTitle
+#           @language = newLanguage
+#           return
+
+#       return
+
 # adding transitions to page change with turbolinks
 #
 # document.addEventListener 'page:change', ->

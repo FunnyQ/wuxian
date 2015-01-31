@@ -35,9 +35,9 @@
   <div id="disqus_thread"></div>
   <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'wuxian4test'; // required: replace example with your forum shortname
-      var disqus_identifier = <%= diary.id %>;
-      var disqus_title = '<%= diary.title %>';
+      var disqus_shortname = '<%= Settings.disqus.short_name %>'; // required: replace example with your forum shortname
+      var disqus_identifier = '<%= diary.id %>';
+      var disqus_title = '<%= "無限交友 :: #{user.nick_name} － #{diary.title}" %>';
 
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function() {

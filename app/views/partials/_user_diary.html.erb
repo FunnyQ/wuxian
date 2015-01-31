@@ -1,5 +1,5 @@
 <!-- 單則日記 -->
-<div class="user-diary-wrapper">
+<div class="user-diary-wrapper" data-no-turbolink="true">
 
   <!-- 推爆等級 -->
   <div class="user-diary-baku gold-baku">
@@ -17,7 +17,7 @@
     <div class="user-diary-subinfo">
       <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span>
       <span>　<%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
-      <span>  <i class="fa fa-comments fa-lg"></i><%= link_to "", user_diary_path(user, diary)+"#disqus_thread" %></span>
+      <span>  <i class="fa fa-comments fa-lg"></i> <%= link_to "", user_diary_path(user, diary)+"#disqus_thread" %></span>
     </div>
 
     <!-- 標籤 -->

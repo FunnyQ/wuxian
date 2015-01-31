@@ -1,9 +1,11 @@
 <!-- diary unit -->
-<%= link_to user_diary_path(user, diary), class: "diary-unit" do %>
+<div class="diary-unit">
   <div class="diary-inner-wrapper">
 
     <!-- diary feature picture -->
-    <div class="diary-cover" style="background-image: url(<%= get_diary_featured_img_url(diary) %>);"></div>
+    <%= link_to user_diary_path(user, diary) do %>
+      <div class="diary-cover" style="background-image: url(<%= get_diary_featured_img_url(diary) %>);"></div>
+    <% end %>
 
     <!-- diary info -->
     <div class="diary-info-wrapper">
@@ -11,13 +13,17 @@
         <div class="baku">爆</div>
         <span class="number"><%= diary.viewed %></span>
       </div>
-      <h4 class="diary-title"><%= diary.title %></h4>
+      <%= link_to user_diary_path(user, diary) do %>
+        <h4 class="diary-title"><%= diary.title %></h4>
+      <% end %>
       <div class="diary-subinfo">
-        <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span> <span><%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
+        <span class="timestamp"><%= render_diary_publish_human_time(diary) %></span>
+        <span> <%= image_tag 'assets/main-icon-viewed.png' %> 瀏覽（<%= number_with_delimiter diary.viewed, :delimiter => ',' %>）</span>
+        <span>  <i class="fa fa-comments fa-lg"></i> <%= link_to "", user_diary_path(user, diary)+"#disqus_thread" %></span>
       </div>
       <div class="diary-content">
         <%= render_diary_summary(diary, 180) %>
       </div>
     </div>
   </div>
-<% end %>
+</div>
