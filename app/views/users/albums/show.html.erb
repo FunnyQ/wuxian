@@ -30,13 +30,13 @@
 
     <!-- 照片列表 -->
     <div class="all-pics">
-      <h3 class="title"><i class="fa fa-photo"></i> 相簿標題 (32)</h3>
+      <h3 class="title"><i class="fa fa-photo"></i> <%= @album.title %> （<%= @album.photos_count %> 張照片）</h3>
       <ul>
-        <% @photos.each do %>
+        <% @photos.each do |photo| %>
           <li class="photo-unit">
             <div class="photo-frame" style="-webkit-transform: rotate(<%= rand(-1.5..1.5) %>deg);">
-              <%= link_to "#" do %>
-                <%= image_tag 'http://placehold.it/800x600', :class => "img-responsive" %>
+              <%= link_to photo.file.url do %>
+                <div class="photo" style="background-image: url('<%= photo.file.mid.url %>');">1</div>
               <% end %>
             </div>
           </li>
