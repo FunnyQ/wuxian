@@ -38,7 +38,7 @@
             <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
               <span class="album-cover"></span>
               <h4><%= album.title %></h4>
-              <span><i class="fa fa-camera"></i> <%= album.photo_count %> 張照片</span>
+              <span><i class="fa fa-camera"></i> <%= album.photos_count %> 張照片</span>
             <% end %>
           </li>
         <% end %>
@@ -55,7 +55,7 @@
             <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
               <span class="album-cover"></span>
               <h4><%= album.title %></h4>
-              <span><i class="fa fa-camera"></i> <%= album.photo_count %> 張照片</span>
+              <span><i class="fa fa-camera"></i> <%= album.photos_count %> 張照片</span>
             <% end %>
           </li>
         <% end %>

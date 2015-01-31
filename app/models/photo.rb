@@ -13,7 +13,9 @@
 #
 
 class Photo < ActiveRecord::Base
-  belongs_to :album
+  belongs_to :album, counter_cache: true
+
+  mount_uploader :file, PhotoUploader
 
   scope :recent, -> { order("created_at DESC") }
   scope :hot, -> { order("viewed DESC") }

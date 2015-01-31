@@ -1,0 +1,28 @@
+<%= form_for [@user, @album] do |album| %>
+
+  <!-- title -->
+  <div class="form-group">
+    <%= album.label :title, "相簿標題" %>
+    <%= album.text_field :title, :class => "form-control", :placeholder => "今天拍了什麼照片呢？" %>
+  </div>
+
+  <!-- featured_img -->
+
+  <!-- content -->
+  <div class="form-group">
+    <%= album.label :description, "相簿描述" %>
+    <%= album.text_area :description, :class => "form-control", rows: 5, :placeholder => "聊聊這本相簿背後的故事吧！" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= album.label :photos, "選擇照片檔案" %>
+    <%= album.file_field :photos, :class => "form-control", multiple: true %>
+    <p class="help-block">可以一次選擇多張</p>
+  </div>
+
+
+  <%= album.button :class => "btn btn-primary pull-right" do %>
+    建立相簿 <i class="fa fa-photo;"></i>
+  <% end %>
+<% end %>

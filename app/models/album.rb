@@ -15,7 +15,9 @@
 
 class Album < ActiveRecord::Base
   belongs_to :user
-  has_many :photos
+  has_many :photos, :dependent => :destroy
+
+  accepts_nested_attributes_for :photos
 
   scope :recent, -> { order("created_at DESC") }
   scope :hot, -> { order("viewed DESC") }

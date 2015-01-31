@@ -19,18 +19,43 @@ class Users::AlbumsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
+    @latest_diaries = @user.diaries.get_latest(4)
+
+    if !user_signed_in? || @user != current_user
+      redirect_to root_path
+      flash[:alert] = "自己的照片自己拍！"
+    end
+    @album = @user.albums.new
+    @photos = @album.photos.new
+    respond_to do |format|
+      format.html
+      format.json
+    end
 
   end
 
   def create
-
+    @user = User.find(params[:user_id])
+    @album = @user.albums.new(album_params)
+    @photos = params[:album][:photos]
+    if @album.save
+      @photos.each do |photo|
+        @album.photos.create(file: photo)
+      end
+      redirect_to user_albums_path
+      flash[:notice] = "成功建立一本相簿囉！"
+    else
+      render :new
+      flash[:alert] = "Oops，請您檢查所有欄位後再試一次 :P"
+    end
   end
 
   def edit
 
   end
 
-  def create
+  def update
 
   end
 
@@ -40,7 +65,7 @@ class Users::AlbumsController < ApplicationController
 
   private
 
-  def albums_params
-    params.require(:album).permit(:title, :description)
+  def album_params
+    params.require(:album).permit(:title, :description, :photos_attributes => [:file])
   end
 end
