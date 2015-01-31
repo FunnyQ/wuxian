@@ -1,4 +1,4 @@
-<%= form_for [@user, @album], :multipart => true do |album| %>
+<%= form_for [@user, @album] do |album| %>
 
   <!-- title -->
   <div class="form-group">
@@ -14,12 +14,13 @@
     <%= album.text_area :description, :class => "form-control", rows: 5, :placeholder => "聊聊這本相簿背後的故事吧！" %>
   </div>
 
-  <%= album.fields_for :photos do |photos| %>
+
   <div class="form-group">
-    <%= photos.label :file %>
-    <%= photos.file_field :file, :class => "form-control", multiple: true %>
+    <%= album.label :photos, "選擇照片檔案" %>
+    <%= album.file_field :photos, :class => "form-control", multiple: true %>
+    <p class="help-block">可以一次選擇多張</p>
   </div>
-  <% end %>
+
 
   <%= album.button :class => "btn btn-primary pull-right" do %>
     建立相簿 <i class="fa fa-photo;"></i>

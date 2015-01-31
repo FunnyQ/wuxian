@@ -38,7 +38,7 @@ class Users::AlbumsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @album = @user.albums.new(album_params)
-    @photos = params[:album][:photos_attributes][:"0"][:file]
+    @photos = params[:album][:photos]
     if @album.save
       @photos.each do |photo|
         @album.photos.create(file: photo)
