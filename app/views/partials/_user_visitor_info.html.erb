@@ -4,10 +4,13 @@
   <div class="visitor-list">
     <ul>
       <% @guestbook.each do |record| %>
-      <li>
-        <%= image_tag render_avatar(record.visitor), :class => "img-responsive img-circle" %>
-        <span><%= render_username(record.visitor) %></span>
-      </li>
+        <% visitor = record.visitor %>
+        <li>
+          <%= link_to user_path(visitor) do %>
+            <%= image_tag render_avatar(visitor), :class => "img-responsive img-circle" %>
+          <% end %>
+          <span><%= render_username(visitor) %></span>
+        </li>
       <% end %>
     </ul>
   </div>
