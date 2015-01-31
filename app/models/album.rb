@@ -16,4 +16,14 @@
 class Album < ActiveRecord::Base
   belongs_to :user
   has_many :photos
+
+  scope :recent, -> { order("created_at DESC") }
+  scope :hot, -> { order("viewed DESC") }
+  scope :get_latest, -> (n) { recent.last(n) }
+  scope :get_hotest, -> (n) { hot.limit(n) }
+
+  def count_up!
+    self.viewed += 1
+    save
+  end
 end

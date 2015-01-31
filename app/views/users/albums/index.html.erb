@@ -1,69 +1,67 @@
 <!-- index.html -->
-    <%= render :partial => "partials/user_cover" %>
+<%= render :partial => "partials/user_cover" %>
 
-    <div class="user-main-content container">
+<div class="user-main-content container">
 
-      <!-- 側邊資訊欄位 -->
-      <div class="user-sidebar">
+  <!-- 側邊資訊欄位 -->
+  <div class="user-sidebar">
 
-        <!-- 使用者資料卡，包含社交按鈕 -->
-        <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
+    <!-- 使用者資料卡，包含社交按鈕 -->
+    <%= render :partial => "partials/user_title_card", locals: {user: @user} %>
 
-      </div>
+  </div>
 
-      <!-- 主要資料欄位 -->
-      <div class="user-main">
+  <!-- 主要資料欄位 -->
+  <div class="user-main">
 
-        <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
+    <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
 
-      </div>
+  </div>
 
-      <!-- 相簿內容 -->
-      <div class="user-albums-wrapper">
+  <!-- 相簿內容 -->
+  <div class="user-albums-wrapper">
 
-        <!-- 相簿選單欄位 -->
-        <div class="album-create-options">
+    <!-- 相簿選單欄位 -->
+    <div class="album-create-options">
 
-          <!-- 新增相簿 -->
-          <a href="" class="album-new">
-            <i class="fa fa-plus"></i> 新增相簿
-          </a>
-        </div>
-
-        <!-- 熱門相簿列表 -->
-        <div class="hot-albums-list">
-          <h3 class="title"><i class="fa fa-fire"></i> 熱門相簿</h3>
-
-          <ul>
-            <% 4.times.each do %>
-              <li class="album-unit">
-                <%= link_to user_album_show_path, :class => "album-wrapper" do %>
-                  <span class="album-cover"></span>
-                  <h4>相簿標題</h4>
-                  <span><i class="fa fa-camera"></i> <%= rand(99) %> 張照片</span>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-
-        <!-- 所有相簿列表 -->
-        <div class="all-albums">
-          <h3 class="title"><i class="fa fa-book"></i> 所有相簿</h3>
-
-          <ul>
-            <% @albums.each do |album| %>
-              <li class="album-unit">
-                <%= link_to user_album_show_path, :class => "album-wrapper" do %>
-                  <span class="album-cover"></span>
-                  <h4><%= album.title %></h4>
-                  <span><i class="fa fa-camera"></i> <%= album.photo_count %> 張照片</span>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-
-      </div>
-
+      <!-- 新增相簿 -->
+      <%= render_new_album_btn(@user) %>
     </div>
+
+    <!-- 熱門相簿列表 -->
+    <div class="hot-albums-list">
+      <h3 class="title"><i class="fa fa-fire"></i> 熱門相簿</h3>
+
+      <ul>
+        <% @hot_albums.each do |album| %>
+          <li class="album-unit">
+            <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
+              <span class="album-cover"></span>
+              <h4><%= album.title %></h4>
+              <span><i class="fa fa-camera"></i> <%= album.photo_count %> 張照片</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- 所有相簿列表 -->
+    <div class="all-albums">
+      <h3 class="title"><i class="fa fa-book"></i> 所有相簿</h3>
+
+      <ul>
+        <% @albums.each do |album| %>
+          <li class="album-unit">
+            <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
+              <span class="album-cover"></span>
+              <h4><%= album.title %></h4>
+              <span><i class="fa fa-camera"></i> <%= album.photo_count %> 張照片</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
