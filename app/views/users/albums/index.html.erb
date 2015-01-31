@@ -36,7 +36,7 @@
         <% @hot_albums.each do |album| %>
           <li class="album-unit">
             <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
-              <span class="album-cover"></span>
+              <span class="album-cover" style="background-image: url(<%= album.photos.find_by(album.cover_id).file.mid.url %>);"></span>
               <h4><%= album.title %></h4>
               <span><i class="fa fa-camera"></i> <%= album.photos_count %> 張照片</span>
             <% end %>
@@ -53,7 +53,7 @@
         <% @albums.each do |album| %>
           <li class="album-unit">
             <%= link_to user_album_path(@user, album), :class => "album-wrapper" do %>
-              <span class="album-cover"></span>
+              <span class="album-cover" style="background-image: url(<%= album.photos.find_by(album.cover_id).file.mid.url %>);"></span>
               <h4><%= album.title %></h4>
               <span><i class="fa fa-camera"></i> <%= album.photos_count %> 張照片</span>
             <% end %>

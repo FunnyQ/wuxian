@@ -17,7 +17,7 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :file, PhotoUploader
 
-  scope :recent, -> { order("created_at DESC") }
+  scope :recent, -> { order("id DESC") }
   scope :hot, -> { order("viewed DESC") }
   scope :get_latest, -> (n) { recent.last(n) }
   scope :get_hotest, -> (n) { hot.limit(n) }
