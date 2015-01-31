@@ -40,8 +40,9 @@ class Users::AlbumsController < ApplicationController
     @album = @user.albums.new(album_params)
     @photos = params[:album][:photos]
     if @album.save
-      @photos.each do |photo|
-        @album.photos.create(file: photo)
+      @photos.each_with_index do |photo, index|
+        album = @album.photos.create(file: photo)
+        @album.update_attribute(:cover_id, album.id) if index == 0
       end
       redirect_to user_albums_path
       flash[:notice] = "成功建立一本相簿囉！"
@@ -66,6 +67,6 @@ class Users::AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :description, :photos_attributes => [:file])
+    params.require(:album).permit(:title, :description, :cover_id, :photos_attributes => [:file])
   end
 end
