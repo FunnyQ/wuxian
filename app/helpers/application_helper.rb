@@ -15,8 +15,6 @@ module ApplicationHelper
 
   # check active status 2
   def link_actived?(link_path)
-    if current_page?(link_path)
-      "active"
-    end
+    "active" if current_page?(link_path)
   end
 end

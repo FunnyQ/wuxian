@@ -11,9 +11,7 @@ class Users::DiariesController < ApplicationController
     @user = @diary.user
     @latest_diaries = @user.diaries.get_latest(4)
 
-    if @user != current_user
-      @diary.count_up!
-    end
+    @diary.count_up! if @user != current_user
 
     return if @user.id.to_s == params[:user_id]
 

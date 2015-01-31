@@ -1,14 +1,19 @@
 <div class="user-visitor-info">
   <h3 class="title">誰來我家</h3>
-  <span class="more">看更多〉</span>
+  <!-- <span class="more">看更多〉</span> -->
   <div class="visitor-list">
     <ul>
-      <% 16.times.each do |visitor| %>
-      <li>
-        <%= image_tag 'assets/user-avatar.jpg', :class => "img-responsive img-circle" %>
-        <span>Tim Cook</span>
-      </li>
+      <%= "您還沒有訪客來過唷！" if @guestbook.blank? %>
+      <% @guestbook.each do |record| %>
+        <% visitor = record.visitor %>
+        <li>
+          <%= link_to user_path(visitor) do %>
+            <%= image_tag render_avatar(visitor), :class => "img-responsive img-circle" %>
+          <% end %>
+          <span><%= render_username(visitor) %></span>
+        </li>
       <% end %>
     </ul>
   </div>
 </div>
+
