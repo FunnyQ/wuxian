@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  title       :string(255)
 #  description :text(65535)
+#  file        :string(255)
 #  album_id    :integer
 #  viewed      :integer
 #  created_at  :datetime         not null

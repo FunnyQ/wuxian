@@ -5,7 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.text :description
       t.string :file
       t.references :album, index: true
-      t.integer :viewed
+      t.integer :viewed, default: 0
 
       t.timestamps null: false
     end
