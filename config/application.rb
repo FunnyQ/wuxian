@@ -27,7 +27,7 @@ module WuxianRails
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # 設定預設語系
+    # sitting default lang to zh-TW
     config.i18n.default_locale = "zh-TW"
   end
 end

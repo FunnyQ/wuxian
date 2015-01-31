@@ -2,7 +2,6 @@
 
 class DiaryFeaturedUploader < CarrierWave::Uploader::Base
 
-  # 刪除空資料夾
   after :remove, :delete_empty_upstream_dirs
 
   # Include RMagick or MiniMagick support:

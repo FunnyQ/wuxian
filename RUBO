@@ -1,0 +1,112 @@
+Inspecting 53 files
+.....CCCCCCCCCCC...CC........C..............C........
+
+Offenses:
+
+app/controllers/statuses_controller.rb:3:3: C: Metrics/AbcSize: Assignment Branch Condition size for create is too high. [32.2/15]
+  def create
+  ^^^
+app/controllers/statuses_controller.rb:3:3: C: Metrics/MethodLength: Method has too many lines. [18/10]
+  def create
+  ^^^
+app/controllers/users/albums_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::AlbumsController < ApplicationController
+      ^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/albums_controller.rb:8:3: C: Metrics/AbcSize: Assignment Branch Condition size for show is too high. [17.38/15]
+  def show
+  ^^^
+app/controllers/users/albums_controller.rb:18:5: C: Style/RaiseArgs: Provide an exception class and message as arguments to [33mfail[0m.
+    fail ActionController::RoutingError.new('Not Found')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/albums_controller.rb:21:3: C: Metrics/AbcSize: Assignment Branch Condition size for new is too high. [20.49/15]
+  def new
+  ^^^
+app/controllers/users/albums_controller.rb:21:3: C: Metrics/MethodLength: Method has too many lines. [12/10]
+  def new
+  ^^^
+app/controllers/users/albums_controller.rb:37:3: C: Metrics/AbcSize: Assignment Branch Condition size for create is too high. [23.43/15]
+  def create
+  ^^^
+app/controllers/users/albums_controller.rb:37:3: C: Metrics/MethodLength: Method has too many lines. [14/10]
+  def create
+  ^^^
+app/controllers/users/confirmations_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::ConfirmationsController < Devise::ConfirmationsController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/diaries_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::DiariesController < ApplicationController
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/diaries_controller.rb:9:3: C: Metrics/AbcSize: Assignment Branch Condition size for show is too high. [16.4/15]
+  def show
+  ^^^
+app/controllers/users/diaries_controller.rb:18:5: C: Style/RaiseArgs: Provide an exception class and message as arguments to [33mfail[0m.
+    fail ActionController::RoutingError.new('Not Found')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/diaries_controller.rb:21:3: C: Metrics/AbcSize: Assignment Branch Condition size for new is too high. [15.43/15]
+  def new
+  ^^^
+app/controllers/users/omniauth_callbacks_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/omniauth_callbacks_controller.rb:2:3: C: Metrics/MethodLength: Method has too many lines. [18/10]
+  def self.provides_callback_for(*providers)
+  ^^^
+app/controllers/users/passwords_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::PasswordsController < Devise::PasswordsController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/registrations_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::RegistrationsController < Devise::RegistrationsController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/registrations_controller.rb:3:3: C: Rails/ActionFilter: Prefer [33mbefore_action[0m over [33mbefore_filter[0m.
+  before_filter :configure_account_update_params, only: [:update]
+  ^^^^^^^^^^^^^
+app/controllers/users/registrations_controller.rb:21:3: C: Metrics/AbcSize: Assignment Branch Condition size for update is too high. [28.32/15]
+  def update
+  ^^^
+app/controllers/users/registrations_controller.rb:21:3: C: Metrics/MethodLength: Method has too many lines. [20/10]
+  def update
+  ^^^
+app/controllers/users/registrations_controller.rb:102:131: C: Metrics/LineLength: Line is too long. [159/130]
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nick_name,:mobile_phone, :location, :password, :password_confirmation, :current_password) }
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/sessions_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::SessionsController < Devise::SessionsController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users/unlocks_controller.rb:1:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Users::UnlocksController < Devise::UnlocksController
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/users_controller.rb:3:3: C: Metrics/AbcSize: Assignment Branch Condition size for show is too high. [21.79/15]
+  def show
+  ^^^
+app/controllers/users_controller.rb:3:3: C: Metrics/MethodLength: Method has too many lines. [12/10]
+  def show
+  ^^^
+app/controllers/users_controller.rb:20:3: C: Metrics/AbcSize: Assignment Branch Condition size for write_in_guestbook is too high. [15.17/15]
+  def write_in_guestbook(user)
+  ^^^
+app/helpers/application_helper.rb:7:3: C: Style/AsciiComments: Use only ascii symbols in comments.
+  # 依網址是否符合加入 active class
+  ^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/users/albums_helper.rb:1:8: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+module Users::AlbumsHelper
+       ^^^^^^^^^^^^^^^^^^^
+app/helpers/users/diaries_helper.rb:1:8: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+module Users::DiariesHelper
+       ^^^^^^^^^^^^^^^^^^^^
+app/helpers/users/diaries_helper.rb:17:163: C: Metrics/LineLength: Line is too long. [200/130]
+      diary.featured_img.present? ? image_tag(diary.featured_img.url, class: "featured-img img-responsive") : image_tag('http://placehold.it/800x600&text=no+pic', class: "featured-img img-responsive")
+                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/users/diaries_helper.rb:19:131: C: Metrics/LineLength: Line is too long. [211/130]
+      diary.featured_img.present? ? image_tag(diary.featured_img.send(size).url, class: "featured-img img-responsive") : image_tag('http://placehold.it/100x100&text=no+pic', class: "featured-img img-responsive")
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/models/user/omniauth_callbacks.rb:45:5: C: Metrics/AbcSize: Assignment Branch Condition size for new_from_provider_data is too high. [20.25/15]
+    def new_from_provider_data(provider, _uid, data)
+    ^^^
+config/initializers/devise.rb:7:131: C: Metrics/LineLength: Line is too long. [154/130]
+  # config.secret_key = 'db0d2e0e1d036dd8a3a6f32d2d5832e8673f6eca5382ac7411e3a9cc9d1946ba6037c7c4ea76044f523dff672b8106aacbb53a0ee6a2af96dd7dddb708df333f'
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+config/initializers/devise.rb:100:131: C: Metrics/LineLength: Line is too long. [150/130]
+  # config.pepper = '0f319cb7730867a26f6f605fe71d44984a76a12a71e7ee249192c48a376d2e1864508c57dd20336ae97641d4fc487e5757dabc7d7e7a5f224439749d1f22dd25'
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^
+
+53 files inspected, 35 offenses detected

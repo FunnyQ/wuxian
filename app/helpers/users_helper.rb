@@ -22,23 +22,19 @@ module UsersHelper
     end
   end
 
-  # render user level
   def render_level(user = current_user)
     user.level
   end
 
-  # render user viewd count
   def render_viewed_count(user = current_user)
     user.viewed
   end
 
   def render_status_update_form(user, status)
-    if user == current_user
-      render :partial => "partials/user_status_message_form", locals: { user: user, status: status }
-    end
+    render :partial => "partials/user_status_message_form", locals: { user: user, status: status } if user == current_user
   end
 
-  # 顯示最新狀態
+  # render last status
   def render_status(user = current_user)
     status = user.statuses.latest
     if status.present?
@@ -48,7 +44,6 @@ module UsersHelper
     end
   end
 
-  # 顯示狀態發表時間
   def render_status_publish_time(user = current_user)
     status = user.statuses.latest
     if status.present?

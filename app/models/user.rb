@@ -40,9 +40,9 @@ class User < ActiveRecord::Base
   # for user diary function
   has_many :diaries, dependent: :destroy
 
-  #for guestbook, a.k.a. who comes my page?
+  # for guestbook, a.k.a. who comes my page?
   has_many :guestbooks, :foreign_key => 'host_id', dependent: :destroy
-  has_many :visitors , through: :guestbooks
+  has_many :visitors, through: :guestbooks
 
   # album function
   has_many :albums, dependent: :destroy

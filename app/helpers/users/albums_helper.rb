@@ -1,15 +1,10 @@
 module Users::AlbumsHelper
-
   def render_new_album_btn(user)
-    if user == current_user
-      render "new_album_btn"
-    end
+    render "new_album_btn" if user == current_user
   end
 
   def render_new_photos_btn(user)
-    if user == current_user
-      render "new_photos_btn"
-    end
+    render "new_photos_btn" if user == current_user
   end
 
   def get_cover_url(album, size = "mid")
@@ -20,5 +15,4 @@ module Users::AlbumsHelper
     return album.title if album.title.present?
     "沒有標題"
   end
-
 end

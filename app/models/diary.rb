@@ -18,13 +18,13 @@ class Diary < ActiveRecord::Base
 
   mount_uploader :featured_img, DiaryFeaturedUploader
 
+  validates :title, presence: true
+
   scope :recent, -> { order("created_at DESC") }
   scope :hot, -> { order("viewed DESC") }
   scope :latest, -> { last }
   scope :get_latest, -> (n) { recent.last(n) }
   scope :get_hotest, -> (n) { hot.limit(n) }
-
-  validates_presence_of :title, :content
 
   def count_up!
     self.viewed += 1

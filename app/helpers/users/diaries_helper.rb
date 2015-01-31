@@ -1,40 +1,22 @@
 module Users::DiariesHelper
   # render add new diary btn or not
   def render_new_diary_btn(user)
-    if user == current_user
-      render "new_diary_btn"
-    end
+    render "new_diary_btn" if user == current_user
   end
 
   def render_edit_diary_btn(user)
-    if user == current_user
-      render "edit_diary_btn"
-    end
+    render "edit_diary_btn" if user == current_user
   end
 
   def render_delete_diary_btn(user)
-    if user == current_user
-      render "delete_diary_btn"
-    end
+    render "delete_diary_btn" if user == current_user
   end
 
-  def render_diary_featured_img(diary, size = "original")
-    if diary.featured_img? # has featured image
-
-      # render requested version
-      if size == "thumb"
-        image_tag diary.featured_img.thumb.url, class: "featured-img img-responsive"
-      else
-        image_tag diary.featured_img.url, class: "featured-img img-responsive"
-      end
-
-    else # has no featured image
-
-      # render placeholder
-      if size == "thumb"
-        image_tag 'http://placehold.it/100x100&text=no+pic', class: "featured-img img-responsive"
-      end
-
+  def render_diary_featured_img(diary, size = nil)
+    if size.nil?
+      diary.featured_img.present? ? image_tag(diary.featured_img.url, class: "featured-img img-responsive") : image_tag('http://placehold.it/800x600&text=no+pic', class: "featured-img img-responsive")
+    else
+      diary.featured_img.present? ? image_tag(diary.featured_img.send(size).url, class: "featured-img img-responsive") : image_tag('http://placehold.it/100x100&text=no+pic', class: "featured-img img-responsive")
     end
   end
 

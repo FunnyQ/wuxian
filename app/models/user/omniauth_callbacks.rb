@@ -11,21 +11,22 @@ class User
 
         if authorization
 
-          # 使用者已經是本站註冊用戶並已經綁定第三方服務。
-          # 所以直接登入
+          # user already registered and binded at least one oauth provider
+          # so let user login directly
           user = authorization.user
         else
 
-          # 使用者已經是本站註冊用戶，但尚未綁定此第三方服務。
-          # 找出使用相同 email 的使用者
+          # if user already registered, but never binding any oauth provider
+          # find user by same email
           user = User.find_by_email(data["email"])
           if user
 
-            # 如果有，則登入並為此使用者綁定本第三方服務
+            # if there is a user using the same email, login and binding provider
             user.bind_service(response)
           else
 
-            # 若沒有，則應該是個新使用者，透過第三方服務進行登入
+            # if there is not, then this should be a new user.
+            # log this new user in with oauth and create a new account.
             user = User.new_from_provider_data(provider,uid,data)
 
             if user.save(:validate => false)
@@ -51,7 +52,7 @@ class User
       # user.name = data["name"] if provider == "google"
       # user.name.gsub!(/[^\w]/, "_")
 
-      # 使用者名稱重複的話，用時間參數當作使用者名稱
+      # if there is already a user with same real name, using time serial as user real name
       if User.where(:real_name => user.real_name).count > 0 || user.real_name.blank?
         user.real_name = "u#{Time.now.to_i}"
       end
