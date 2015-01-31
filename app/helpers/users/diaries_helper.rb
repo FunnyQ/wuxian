@@ -1,5 +1,4 @@
 module Users::DiariesHelper
-
   # render add new diary btn or not
   def render_new_diary_btn(user)
     if user == current_user
@@ -40,7 +39,7 @@ module Users::DiariesHelper
   end
 
   def get_diary_featured_img_url(diary)
-    if diary.featured_img? # has featured image
+    if diary.featured_img.url.present? # has featured image
       diary.featured_img.url
     else
       "http://placehold.it/1920x960&text=no+pic"
@@ -62,5 +61,4 @@ module Users::DiariesHelper
   def render_diary_content(diary)
     simple_format(diary.content)
   end
-
 end

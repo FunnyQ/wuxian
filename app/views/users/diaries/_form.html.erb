@@ -8,6 +8,7 @@
 
   <!-- featured_img -->
   <div class="form-group">
+    <%= image_tag @diary.featured_img.thumb.url %>
     <%= diary.label :featured_img, "特色照片" %>
     <%= diary.file_field :featured_img, :class => "form-control" %>
     <p class="help-block">可以上傳一張圖片當做日記封面喔！</p>

@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def self.provides_callback_for(*providers)
     providers.each do |provider|
-      class_eval %Q{
+      class_eval %{
         def #{provider}
           if !current_user.blank?
             current_user.bind_service(env["omniauth.auth"])#Add an auth to existing
@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  provides_callback_for :facebook#, :google
+  provides_callback_for :facebook # , :google
 
   # This is solution for existing accout want bind Google login but current_user is always nil
   # https://github.com/intridea/omniauth/issues/185

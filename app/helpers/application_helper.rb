@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   # image place holder
   def image_holder(w, h)
     image_tag "http://placehold.it/#{w}x#{h}"
@@ -20,5 +19,4 @@ module ApplicationHelper
       "active"
     end
   end
-
 end

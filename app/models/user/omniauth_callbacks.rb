@@ -1,6 +1,5 @@
 class User
   module OmniauthCallbacks
-
     ['facebook'].each do |provider|
       define_method "find_or_create_for_#{provider}" do |response|
 
@@ -30,7 +29,7 @@ class User
             user = User.new_from_provider_data(provider,uid,data)
 
             if user.save(:validate => false)
-              user.authorizations << Authorization.new(:provider => provider, :uid => uid )
+              user.authorizations << Authorization.new(:provider => provider, :uid => uid)
             else
               Rails.logger.warn("3rd-party authentication failed，#{user.errors.inspect}")
             end
@@ -42,7 +41,7 @@ class User
       end
     end
 
-    def new_from_provider_data(provider, uid, data)
+    def new_from_provider_data(provider, _uid, data)
       user = User.new
       user.email = data["email"]
       # user.email = "twitter+#{uid}@example.com" if provider == "twitter"
@@ -61,7 +60,7 @@ class User
       user.location = data["location"]
       # user.tagline = data["description"]
 
-      return user
+      user
     end
   end
 end
