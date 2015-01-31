@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
-before_filter :configure_account_update_params, only: [:update]
+  # before_filter :configure_sign_up_params, only: [:create]
+  before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -77,6 +77,7 @@ before_filter :configure_account_update_params, only: [:update]
   # end
 
   # protected
+
   private
 
   def user_params
@@ -98,7 +99,7 @@ before_filter :configure_account_update_params, only: [:update]
 
   # You can put the params you want to permit in the empty array.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update){ |u| u.permit(:nick_name,:mobile_phone, :location, :password, :password_confirmation, :current_password) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nick_name,:mobile_phone, :location, :password, :password_confirmation, :current_password) }
   end
 
   # The path used after sign up.

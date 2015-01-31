@@ -14,6 +14,10 @@ class Users::DiariesController < ApplicationController
     if @user != current_user
       @diary.count_up!
     end
+
+    return if @user.id.to_s == params[:user_id]
+
+    fail ActionController::RoutingError.new('Not Found')
   end
 
   def new
@@ -42,10 +46,11 @@ class Users::DiariesController < ApplicationController
     @diary = Diary.find(params[:id])
     @user = @diary.user
     @latest_diaries = @user.diaries.get_latest(4)
-    if @user != current_user
-      redirect_to root_path
-      flash[:alert] = "自己的日記自己寫！"
-    end
+
+    return if @user == current_user
+
+    redirect_to root_path
+    flash[:alert] = "自己的日記自己寫！"
   end
 
   def update
@@ -68,8 +73,8 @@ class Users::DiariesController < ApplicationController
 
   private
 
-    def diary_params
-      params.require(:diary).permit(:title, :content, :featured_img, :location)
-    end
+  def diary_params
+    params.require(:diary).permit(:title, :content, :featured_img, :location)
+  end
 
 end

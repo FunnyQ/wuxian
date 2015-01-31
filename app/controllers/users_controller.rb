@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
     @status = @user.statuses.new
     @diaries = @user.diaries.get_latest(5)
-
   end
 
 end

@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   # routes for devise, :skip => [:sessions] can skip routes for sessions controller.
   devise_for :users, skip: [], controllers: {
-                                        omniauth_callbacks: "users/omniauth_callbacks",
-                                        registrations: "users/registrations",
-                                      }
+    omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: "users/registrations"
+  }
 
 
 

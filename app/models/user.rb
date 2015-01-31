@@ -39,17 +39,17 @@ class User < ActiveRecord::Base
   def bind_service(response)
     provider = response["provider"]
     uid = response["uid"]
-    authorizations.create(:provider => provider , :uid => uid )
+    authorizations.create(:provider => provider, :uid => uid)
   end
 
   def count_up!
     self.viewed += 1
-    self.save
+    save
   end
 
   def not_new_user
     self.is_new_user = false
-    self.save
+    save
   end
 
 end

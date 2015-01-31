@@ -1,5 +1,4 @@
 module UsersHelper
-
   # render edit user registrations form
   def render_edit_user_form(user)
     if user.is_new_user == true
@@ -35,7 +34,7 @@ module UsersHelper
 
   def render_status_update_form(user, status)
     if user == current_user
-      render :partial => "partials/user_status_message_form", locals: {user: user, status: status}
+      render :partial => "partials/user_status_message_form", locals: { user: user, status: status }
     end
   end
 
@@ -55,8 +54,7 @@ module UsersHelper
     if status.present?
       time_ago_in_words(status.created_at) + "前"
     else
-      "昨天 19:31"
+      ""
     end
   end
-
 end

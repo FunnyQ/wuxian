@@ -1,0 +1,12 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/schema.rb
+    - vendor/assets/bower_components/**/*
+    - bin/**/*
+    - spec/**/*
+    - db/migrate/**/*
