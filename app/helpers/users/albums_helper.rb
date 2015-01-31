@@ -12,4 +12,13 @@ module Users::AlbumsHelper
     end
   end
 
+  def get_cover_url(album, size = "mid")
+    album.photos.find_by(album.cover_id).file.send(size).url
+  end
+
+  def render_album_title(album)
+    return album.title if album.title.present?
+    "沒有標題"
+  end
+
 end

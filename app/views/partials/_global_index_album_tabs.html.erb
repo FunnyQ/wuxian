@@ -19,26 +19,26 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="hot_album">
 
-        <% 3.times.each do |a| %>
+        <% @hot_albums.each do |album| %>
         <!-- album unit -->
         <a href="#" class="album-unit">
-          <div class="album-cover" style="background-image: url(<%= asset_path 'assets/index-album-cover.jpg' %>);"></div>
+          <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
           <div class="album-info">
-            <h4>iPhone 6 / iPhone 6 plus</h4>
-            <span>by Tim Cool</span>
+            <h4><%= render_album_title(album) %></h4>
+            <span>by <%= render_username(album.user) %></span>
           </div>
         </a>
         <% end %>
 
       </div>
       <div role="tabpanel" class="tab-pane fade" id="latest_album">
-        <% 3.times.each do |a| %>
+        <% @latest_albums.each do |album| %>
         <!-- album unit -->
         <a href="#" class="album-unit">
-          <div class="album-cover" style="background-image: url(<%= asset_path 'assets/index-album-cover2.jpg' %>);"></div>
+          <div class="album-cover" style="background-image: url(<%= get_cover_url(album) %>);"></div>
           <div class="album-info">
-            <h4>生化部隊啟動！</h4>
-            <span>by Tim Cool</span>
+            <h4><%= render_album_title(album) %></h4>
+            <span>by <%= render_username(album.user) %></span>
           </div>
         </a>
         <% end %>

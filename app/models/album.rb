@@ -19,9 +19,9 @@ class Album < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
-  scope :recent, -> { order("created_at DESC") }
+  scope :recent, -> { order("id DESC") }
   scope :hot, -> { order("viewed DESC") }
-  scope :get_latest, -> (n) { recent.last(n) }
+  scope :get_latest, -> (n) { recent.limit(n) }
   scope :get_hotest, -> (n) { hot.limit(n) }
 
   def count_up!
