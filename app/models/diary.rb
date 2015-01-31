@@ -21,7 +21,7 @@ class Diary < ActiveRecord::Base
   scope :recent, -> { order("created_at DESC") }
   scope :hot, -> { order("viewed DESC") }
   scope :latest, -> { last }
-  scope :get_latest, -> (n) { last(n) }
+  scope :get_latest, -> (n) { recent.last(n) }
   scope :get_hotest, -> (n) { hot.limit(n) }
 
   validates_presence_of :title, :content
