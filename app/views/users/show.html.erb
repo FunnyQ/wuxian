@@ -34,10 +34,6 @@
 
         <%= render :partial => "partials/user_content_tabs", locals: {user: @user} %>
 
-        <div class="flash-message-wrapper">
-          <%= render partial: "partials/flash_message" %>
-        </div>
-
         <!-- 使用者狀態更新表單 -->
         <%= render_status_update_form(@user, @status) %>
 

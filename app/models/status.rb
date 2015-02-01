@@ -16,5 +16,5 @@ class Status < ActiveRecord::Base
 
   scope :recent, -> { order("created_at DESC") }
   scope :latest, -> { last }
-  scope :get_latest, ->(n) { recent.last(n) }
+  scope :get_latest, ->(n) { recent.limit(n) }
 end

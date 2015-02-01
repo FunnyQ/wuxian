@@ -24,7 +24,7 @@ class Users::DiariesController < ApplicationController
 
     if !user_signed_in? || @user != current_user
       redirect_to root_path
-      flash[:alert] = "自己的日記自己寫！"
+      flash[:error] = "自己的日記自己寫！"
     end
     @diary = @user.diaries.new
   end
@@ -34,7 +34,7 @@ class Users::DiariesController < ApplicationController
     @diary = @user.diaries.new(diary_params)
     if @diary.save
       redirect_to user_diaries_path
-      flash[:notice] = "成功寫下一篇日記囉！"
+      flash[:success] = "成功寫下一篇日記囉！"
     else
       render :new
       flash[:alert] = "Oops，請您檢查日記欄位後再試一次 :P"
@@ -49,14 +49,14 @@ class Users::DiariesController < ApplicationController
     return if @user == current_user
 
     redirect_to root_path
-    flash[:alert] = "自己的日記自己寫！"
+    flash[:error] = "自己的日記自己寫！"
   end
 
   def update
     @diary = Diary.find(params[:id])
     if @diary.update(diary_params)
       redirect_to user_diaries_path
-      flash[:notice] = "日記順利更新完成囉！"
+      flash[:success] = "日記順利更新完成囉！"
     else
       render :edit
       flash[:alert] = "Oops，請您檢查日記欄位後再試一次 :P"
@@ -69,10 +69,10 @@ class Users::DiariesController < ApplicationController
     if @user == current_user
       @diary.destroy
       redirect_to user_diaries_path
-      flash[:notice] = "日記已經刪除"
+      flash[:success] = "日記已經刪除"
     else
       redirect_to root_path
-      flash[:alert] = "自己的日記自己管！"
+      flash[:error] = "自己的日記自己管！"
     end
   end
 

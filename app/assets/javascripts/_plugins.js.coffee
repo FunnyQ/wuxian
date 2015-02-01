@@ -14,6 +14,7 @@
 #= require jQuery.Marquee/jquery.marquee
 #= require bx-slider.js/jquery.bxslider
 #= require sweet-alert-confirm
+#= require growlyflash
 
 
 
