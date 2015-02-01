@@ -43,7 +43,7 @@ class Users::AlbumsController < ApplicationController
         album = @album.photos.create(file: photo)
         @album.update_attribute(:cover_id, album.id) if index == 0
       end
-      redirect_to user_albums_path
+      redirect_to user_album_path(@user, @album)
       flash[:notice] = "成功建立一本相簿囉！"
     else
       render :new
