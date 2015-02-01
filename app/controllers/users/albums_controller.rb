@@ -43,7 +43,7 @@ class Users::AlbumsController < ApplicationController
         album = @album.photos.create(file: photo)
         @album.update_attribute(:cover_id, album.id) if index == 0
       end
-      redirect_to user_albums_path
+      redirect_to user_album_path(@user, @album)
       flash[:notice] = "成功建立一本相簿囉！"
     else
       render :new
@@ -58,6 +58,16 @@ class Users::AlbumsController < ApplicationController
   end
 
   def destroy
+    @album = Album.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @album.destroy
+      redirect_to user_albums_path
+      flash[:notice] = "相簿已經刪除"
+    else
+      redirect_to root_path
+      flash[:alert] = "自己的相簿自己管！"
+    end
   end
 
   private

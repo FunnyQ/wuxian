@@ -24,8 +24,12 @@
     <!-- 相簿選單欄位 -->
     <div class="album-create-options">
 
-      <!-- 新增相簿 -->
+      <!-- 新增照片 -->
       <%= render_new_photos_btn(@user) %>
+
+      <!-- 刪除相簿 -->
+      <%= render_delete_album_btn(@user) %>
+
     </div>
 
     <!-- 照片列表 -->
