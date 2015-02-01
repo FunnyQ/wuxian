@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           else
             @user = User.find_or_create_for_#{provider}(env["omniauth.auth"])
             if @user.persisted?
-             flash[:notice] = "成功使用 #{provider.to_s.titleize} 帳號登入."
+             flash[:success] = "成功使用 #{provider.to_s.titleize} 帳號登入"
               sign_in_and_redirect @user, :event => :authentication, :notice => "登入成功"
             else
               redirect_to new_user_registration_url

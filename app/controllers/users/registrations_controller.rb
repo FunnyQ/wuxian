@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.is_new_user == true
       if @user.update_attributes(user_params)
         @user.not_new_user
-        flash[:notice] = '謝謝您，資料已經更新'
+        flash[:success] = '謝謝您，資料已經更新'
 
         old_user = User.find(@user_id)
         sign_in(old_user, :bypass => true)

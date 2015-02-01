@@ -24,7 +24,7 @@ class Users::AlbumsController < ApplicationController
 
     if !user_signed_in? || @user != current_user
       redirect_to root_path
-      flash[:alert] = "自己的照片自己拍！"
+      flash[:error] = "自己的照片自己拍！"
     end
     @album = @user.albums.new
     @photos = @album.photos.new
@@ -44,7 +44,7 @@ class Users::AlbumsController < ApplicationController
         @album.update_attribute(:cover_id, album.id) if index == 0
       end
       redirect_to user_album_path(@user, @album)
-      flash[:notice] = "成功建立一本相簿囉！"
+      flash[:success] = "成功建立一本相簿囉！"
     else
       render :new
       flash[:alert] = "Oops，請您檢查所有欄位後再試一次 :P"
@@ -63,7 +63,7 @@ class Users::AlbumsController < ApplicationController
     if @user == current_user
       @album.destroy
       redirect_to user_albums_path
-      flash[:notice] = "相簿已經刪除"
+      flash[:success] = "相簿已經刪除"
     else
       redirect_to root_path
       flash[:alert] = "自己的相簿自己管！"

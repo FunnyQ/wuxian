@@ -78,6 +78,7 @@ gem 'sass-rails', '5.0.0.beta1'
 gem 'compass-rails', '2.0.0'
 gem 'bower-rails'
 gem "font-awesome-rails"
+gem 'growlyflash', '0.6.2'
 
 gem 'modernizr-rails'
 gem 'carrierwave'

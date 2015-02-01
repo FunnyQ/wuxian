@@ -5,10 +5,10 @@ class PhotosController < ApplicationController
 
     if @user == current_user
       @photo.destroy
-      flash[:notice] = "照片已經成功刪除"
+      flash[:success] = "照片已經成功刪除"
       redirect_to :back
     else
-      flash[:alert] = "自己的照片自己刪！"
+      flash[:error] = "自己的照片自己刪！"
       redirect_to :back
     end
   end
