@@ -58,6 +58,16 @@ class Users::AlbumsController < ApplicationController
   end
 
   def destroy
+    @album = Album.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @album.destroy
+      redirect_to user_albums_path
+      flash[:notice] = "相簿已經刪除"
+    else
+      redirect_to root_path
+      flash[:alert] = "自己的相簿自己管！"
+    end
   end
 
   private

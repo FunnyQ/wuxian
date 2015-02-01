@@ -1,0 +1,9 @@
+<%= link_to user_album_path, class: "album-delete", method: "delete", data: {
+                                                                                confirm: "您確定要刪除這本相簿嗎？",
+                                                                                :'confirm-button-text' => '確定刪除',
+                                                                                :'cancel-button-text' => '取消',
+                                                                                :'sweet-alert-type' => 'warning',
+                                                                                text: '這個動作無法復原喔！'
+                                                                                } do %>
+  <i class="fa fa-close"></i> 刪除相簿
+<% end %>

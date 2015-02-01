@@ -65,9 +65,15 @@ class Users::DiariesController < ApplicationController
 
   def destroy
     @diary = Diary.find(params[:id])
-    @diary.destroy
-    redirect_to user_diaries_path
-    flash[:notice] = "日記已經刪除"
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @diary.destroy
+      redirect_to user_diaries_path
+      flash[:notice] = "日記已經刪除"
+    else
+      redirect_to root_path
+      flash[:alert] = "自己的日記自己管！"
+    end
   end
 
   private
