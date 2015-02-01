@@ -70,6 +70,20 @@ class Users::AlbumsController < ApplicationController
     end
   end
 
+  def delete_photo
+    @photo = Photo.find(params[:photo_id])
+    @user = @photo.album.user
+
+    if @user == current_user
+      @photo.destroy
+      flash[:success] = "照片已經成功刪除"
+      redirect_to :back
+    else
+      flash[:error] = "自己的照片自己刪！"
+      redirect_to :back
+    end
+  end
+
   private
 
   def album_params

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :diaries, module: 'users'
-    resources :albums, module: 'users'
+    resources :albums, module: 'users' do
+      member do
+        delete '/photos/:photo_id' => "albums#delete_photo", as: :delete_photo
+      end
+    end
   end
 
   resources :statuses, only: [:create]

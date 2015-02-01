@@ -1,4 +1,4 @@
-<%= link_to photo_path(photo), class: "delete-btn", method: "delete", data: {
+<%= link_to delete_photo_user_album_path(params[:user_id], params[:id], photo), class: "delete-btn", method: "delete", data: {
                                                                                 confirm: "您確定要刪除這張照片嗎？",
                                                                                 :'confirm-button-text' => '確定刪除',
                                                                                 :'cancel-button-text' => '取消',
