@@ -1,0 +1,9 @@
+<%= link_to photo_path(photo), class: "delete-btn", method: "delete", data: {
+                                                                                confirm: "您確定要刪除這張照片嗎？",
+                                                                                :'confirm-button-text' => '確定刪除',
+                                                                                :'cancel-button-text' => '取消',
+                                                                                :'sweet-alert-type' => 'warning',
+                                                                                text: '這個動作無法復原喔！'
+                                                                                } do %>
+  <i class="fa fa-close fa-2x"></i>
+<% end %>

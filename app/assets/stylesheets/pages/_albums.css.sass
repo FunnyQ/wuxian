@@ -52,8 +52,25 @@
       +box-shadow(0 0 2px #555)
       +backface-visibility(hidden)
       +transition(all, 0.3s)
+      .delete-btn
+        display: none
+        position: absolute
+        right: 0
+        margin: -20px -20px 0 0
+        width: 45px
+        height: 45px
+        border: 6px solid $c-white
+        background-color: $c-red
+        +border-radius(50%)
+        +box-shadow(0 0 5px $c-dark-grey)
+        color: $c-white
+        +transition(all .3s)
+        &:hover
+          +box-shadow(0 0 10px $c-dark-grey)
       &:hover
         +box-shadow(0 0 10px #555)
+        .delete-btn
+          display: block
     .photo
       width: 100%
       padding-bottom: 75%

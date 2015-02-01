@@ -39,6 +39,7 @@
         <% @photos.each do |photo| %>
           <li class="photo-unit">
             <div class="photo-frame" style="-webkit-transform: rotate(<%= rand(-1.5..1.5) %>deg);">
+              <%= render_delete_photo_btn(photo, @user) %>
               <%= link_to photo.file.url do %>
                 <div class="photo" style="background-image: url('<%= photo.file.mid.url %>');"></div>
               <% end %>
