@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/:nick_name' => 'users#show', as: :user_index
 
   resources :users, only: [:show] do
+    resources :statuses, module: 'users', only: [:create]
     resources :diaries, module: 'users'
     resources :albums, module: 'users' do
       member do

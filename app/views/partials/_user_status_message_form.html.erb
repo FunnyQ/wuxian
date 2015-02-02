@@ -9,13 +9,13 @@
       </span>
     </div>
 
-    <%= form_for status, remote: true do |f| %>
+    <%= form_for status , url: user_statuses_path(user), remote: true do |f| %>
       <div class="textarea-wrapper">
         <%= f.text_area :content, :class => "form-control", :placeholder => "想說些什麼？", :row => 3 %>
       </div>
       <div class="options-wrapper">
         <div class="submit-btn">
-          <%= button_to statuses_path, :method => "post", data: { no_turbolink: true } do %>
+          <%= f.button :method => "post", data: { no_turbolink: true } do %>
             <i class="fa fa-edit"></i> 發表
           <% end %>
         </div>

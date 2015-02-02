@@ -1,4 +1,4 @@
-class StatusesController < ApplicationController
+class Users::StatusesController < ApplicationController
 
   def create
     @status = current_user.statuses.new(status_params)
