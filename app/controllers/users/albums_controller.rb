@@ -75,13 +75,15 @@ class Users::AlbumsController < ApplicationController
     @user = @photo.album.user
 
     if @user == current_user
-      @photo.destroy
-      flash[:success] = "照片已經成功刪除"
-      redirect_to :back
+      respond_to do |format|
+        @photo.destroy
+        format.js
+        flash[:success] = "照片已經成功刪除"
+      end
     else
       flash[:error] = "自己的照片自己刪！"
-      redirect_to :back
     end
+
   end
 
   private

@@ -34,10 +34,10 @@
 
     <!-- 照片列表 -->
     <div class="all-pics">
-      <h3 class="title"><i class="fa fa-photo"></i> <%= render_album_title(@album) %> （<%= @album.photos_count %> 張照片）</h3>
+      <h3 class="title"><i class="fa fa-photo"></i> <%= render_album_title(@album) %> （<span class="photos-count"><%= @album.photos_count %></span> 張照片）</h3>
       <ul>
         <% @photos.each do |photo| %>
-          <li class="photo-unit">
+          <li class="photo-unit" id="photo-<%= photo.id %>">
             <div class="photo-frame" style="-webkit-transform: rotate(<%= rand(-1.5..1.5) %>deg);">
               <%= render_delete_photo_btn(photo, @user) %>
               <%= link_to photo.file.url do %>

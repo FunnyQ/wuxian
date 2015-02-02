@@ -22,7 +22,7 @@
   </div>
 
 
-  <%= album.button :class => "btn btn-primary pull-right" do %>
+  <%= album.button :class => "btn btn-primary pull-right", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> 照片上傳中..."} do %>
     建立相簿 <i class="fa fa-photo;"></i>
   <% end %>
 <% end %>
