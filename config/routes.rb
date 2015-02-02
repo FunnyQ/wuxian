@@ -17,13 +17,14 @@ Rails.application.routes.draw do
     resources :diaries, module: 'users'
     resources :albums, module: 'users' do
       member do
-        delete '/photos/:photo_id' => "albums#delete_photo", as: :delete_photo
+        delete '/photos/:photo_id' => 'albums#delete_photo', as: :delete_photo
+        get '/more_photos' => 'albums#more_photos'
       end
     end
   end
 
-  resources :statuses, only: [:create]
-  resources :photos, only: [:destroy]
+  # resources :statuses, only: [:create]
+  # resources :photos, only: [:destroy]
 
   # pages which in developing status
   # get '/users/tim_cook' => 'frontend#index', :as => :user_index

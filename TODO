@@ -1,4 +1,6 @@
  ☐ change !current_user to user_signed_in? helper
  ✔ after signed path redirect to user_index_path @done (15-01-31 19:42)
 
+ ☐ 設定封面照片
+
  ☐ 檢查驗證欄位
