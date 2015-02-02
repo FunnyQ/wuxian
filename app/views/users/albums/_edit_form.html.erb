@@ -1,0 +1,43 @@
+<div class="album-create-options">
+
+  <!-- 新增照片 -->
+  <%= link_to "#", class: "album-new" do %>
+    <i class="fa fa-plus fa-lg"></i> 上傳更多照片
+  <% end %>
+</div>
+
+<%= form_for [@user, @album] do |album| %>
+
+  <!-- title -->
+  <div class="form-group">
+    <%= album.label :title, "相簿標題" %>
+    <%= album.text_field :title, :class => "form-control", :placeholder => "今天拍了什麼照片呢？" %>
+  </div>
+
+  <!-- featured_img -->
+
+  <!-- content -->
+  <div class="form-group">
+    <%= album.label :description, "相簿描述" %>
+    <%= album.text_area :description, :class => "form-control", rows: 5, :placeholder => "聊聊這本相簿背後的故事吧！" %>
+  </div>
+
+  <div class="row">
+    <ul>
+      <% @photos.each do |photo| %>
+        <li class="photo-unit" id="photo-<%= photo.id %>">
+          <div class="photo-frame" style="-webkit-transform: rotate(<%= rand(-1.5..1.5) %>deg);">
+            <%= render_delete_photo_btn(photo, @user) %>
+            <%= link_to photo.file.url do %>
+              <div class="photo" style="background-image: url('<%= photo.file.mid.url %>');"></div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= album.button :class => "btn btn-primary pull-right", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin fa-lg'></i> 照片上傳中..."} do %>
+    確定編輯 <i class="fa fa-photo;"></i>
+  <% end %>
+<% end %>

@@ -25,7 +25,7 @@
     <div class="album-create-options">
 
       <!-- 新增照片 -->
-      <%= render_new_photos_btn(@user) %>
+      <%= render_edit_album_btn(@user) %>
 
       <!-- 刪除相簿 -->
       <%= render_delete_album_btn(@user) %>
@@ -35,6 +35,9 @@
     <!-- 照片列表 -->
     <div class="all-pics">
       <h3 class="title"><i class="fa fa-photo"></i> <%= render_album_title(@album) %> （<span class="photos-count"><%= @album.photos_count %></span> 張照片）</h3>
+      <div class="album-description-wrapper">
+        <%= @album.description %>
+      </div>
       <ul>
         <% @photos.each do |photo| %>
           <li class="photo-unit" id="photo-<%= photo.id %>">

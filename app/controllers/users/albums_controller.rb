@@ -28,10 +28,10 @@ class Users::AlbumsController < ApplicationController
     end
     @album = @user.albums.new
     @photos = @album.photos.new
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
 
   def create
@@ -52,9 +52,29 @@ class Users::AlbumsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
+    @latest_diaries = @user.diaries.get_latest(4)
+
+    if !user_signed_in? || @user != current_user
+      redirect_to root_path
+      flash[:error] = "自己的相簿自己編！"
+    end
+
+    @album = Album.find(params[:id])
+    @photos = @album.photos.all.recent
   end
 
   def update
+    @user = User.find(params[:user_id])
+    @album = Album.find(params[:id])
+    @photos = params[:album][:photos]
+    if @album.update(album_params)
+      redirect_to user_album_path(@user, @album)
+      flash[:success] = "相簿更新完成囉！"
+    else
+      render :edit
+      flash[:alert] = "Oops，請您檢查欄位後再試一次 :P"
+    end
   end
 
   def destroy

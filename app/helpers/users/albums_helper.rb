@@ -3,8 +3,8 @@ module Users::AlbumsHelper
     render "new_album_btn" if user == current_user
   end
 
-  def render_new_photos_btn(user)
-    render "new_photos_btn" if user == current_user
+  def render_edit_album_btn(user)
+    render "edit_album_btn" if user == current_user
   end
 
   def render_delete_album_btn(user)
