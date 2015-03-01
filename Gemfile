@@ -88,3 +88,5 @@ gem 'omniauth-facebook'
 
 gem 'settingslogic'
 gem 'sweet-alert-confirm', '~> 0.1.0'
+gem 'ckeditor'
+gem 'truncate_html'

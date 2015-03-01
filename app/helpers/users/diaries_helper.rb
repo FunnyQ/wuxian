@@ -29,7 +29,7 @@ module Users::DiariesHelper
   end
 
   def render_diary_summary(diary, length)
-    simple_format(truncate(diary.content, :length => length,  :separator => ''))
+    simple_format(truncate_html(diary.content, :length => length))
   end
 
   def render_diary_publish_human_time(diary)

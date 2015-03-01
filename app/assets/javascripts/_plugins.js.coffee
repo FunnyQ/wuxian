@@ -15,6 +15,8 @@
 #= require bx-slider.js/jquery.bxslider
 #= require sweet-alert-confirm
 #= require growlyflash
+#= require ckeditor/init
+#= require ckeditor/ckeditor
 
 
 

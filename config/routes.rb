@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   # routes for devise, :skip => [:sessions] can skip routes for sessions controller.
   devise_for :users, skip: [], controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
