@@ -15,6 +15,9 @@ class UsersController < ApplicationController
     @guestbook = @user.guestbooks.includes(:visitor).recent
     @status = @user.statuses.new
     @diaries = @user.diaries.get_latest(5)
+
+    @lat = cookies[:lat]
+    @lng = cookies[:lng]
   end
 
   def write_in_guestbook(user)

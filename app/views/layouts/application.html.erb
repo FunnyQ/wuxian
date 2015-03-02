@@ -30,6 +30,7 @@
 
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true,"data-turbolinks-eval" => false %>
+  <%= yield :inline_js %>
   <%= render partial: "partials/disqus_comment_count" %>
   </body>
 </html>
