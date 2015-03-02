@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302064215) do
+ActiveRecord::Schema.define(version: 20150302064216) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -113,9 +113,12 @@ ActiveRecord::Schema.define(version: 20150302064215) do
     t.string   "nick_name",              limit: 255
     t.string   "mobile_phone",           limit: 255
     t.string   "location",               limit: 255
-    t.integer  "level",                  limit: 4,   default: 1,    null: false
     t.integer  "viewed",                 limit: 4,   default: 1,    null: false
     t.boolean  "is_new_user",            limit: 1,   default: true
+    t.integer  "hot_level",              limit: 4,   default: 0,    null: false
+    t.integer  "rich_level",             limit: 4,   default: 0,    null: false
+    t.integer  "friend_level",           limit: 4,   default: 0,    null: false
+    t.integer  "push_level",             limit: 4,   default: 0,    null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
