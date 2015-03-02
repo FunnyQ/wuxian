@@ -22,8 +22,20 @@ module UsersHelper
     end
   end
 
-  def render_level(user = current_user)
-    user.level
+  def render_hot_level(user = current_user)
+    user.hot_level
+  end
+
+  def render_rich_level(user = current_user)
+    user.rich_level
+  end
+
+  def render_friend_level(user = current_user)
+    user.friend_level
+  end
+
+  def render_push_level(user = current_user)
+    user.push_level
   end
 
   def render_viewed_count(user = current_user)

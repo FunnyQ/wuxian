@@ -3,11 +3,11 @@
   <span class="more">看更多〉</span>
   <div class="level-list">
     <ul>
-      <!-- <li>個人等級：<span><%= user.level %></span></li> -->
-      <li>人氣等級：<span><%= 999999999 %></span></li>
-      <li>財富等級：<span><%= 999999999 %></span></li>
-      <li>好友等級：<span><%= 999999999 %></span></li>
-      <li>推爆等級：<span><%= 999999999 %></span></li>
+      <!-- <li>個人等級：<span><%# user.level %></span></li> -->
+      <li>人氣等級：<span><%= render_hot_level(user) %></span></li>
+      <li>財富等級：<span><%= render_rich_level(user) %></span></li>
+      <li>好友等級：<span><%= render_friend_level(user) %></span></li>
+      <li>推爆等級：<span><%= render_push_level(user) %></span></li>
     </ul>
   </div>
 </div>
