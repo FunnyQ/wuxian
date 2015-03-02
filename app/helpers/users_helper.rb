@@ -46,6 +46,14 @@ module UsersHelper
     render :partial => "partials/user_status_message_form", locals: { user: user, status: status } if user == current_user
   end
 
+  def get_geolocation(user)
+    render partial: 'partials/get_geolocation' if user == current_user
+  end
+
+  def render_realtime_location
+    @location.present? ? @location : '定位中...'
+  end
+
   # render last status
   def render_status(user = current_user)
     status = user.statuses.latest

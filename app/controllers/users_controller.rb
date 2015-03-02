@@ -16,8 +16,7 @@ class UsersController < ApplicationController
     @status = @user.statuses.new
     @diaries = @user.diaries.get_latest(5)
 
-    @lat = cookies[:lat]
-    @lng = cookies[:lng]
+    get_location if cookies[:lat].present?
   end
 
   def write_in_guestbook(user)
@@ -25,6 +24,17 @@ class UsersController < ApplicationController
     @guestbooks.where(visitor_id: current_user.id).delete_all if @guestbooks.find_by_visitor_id(current_user.id)
     @guestbooks.create(visitor_id: current_user.id)
     @guestbooks.first.delete if @guestbooks.count >= 25
+  end
+
+  def get_location
+    lat = cookies[:lat]
+    lng = cookies[:lng]
+    loc = Geocoder.search("#{lat}, #{lng}")
+    if loc.length < 2
+      @location = loc.first.formatted_address
+    else
+      @location = loc[loc.length - 3].formatted_address
+    end
   end
 
 end

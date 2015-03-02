@@ -65,24 +65,4 @@
       </div>
     </div>
 
-    <%= content_for :inline_js do %>
-      <script>
-        var getGeoLocation, setGeoCookie;
-
-        getGeoLocation = function() {
-          navigator.geolocation.getCurrentPosition(setGeoCookie);
-        };
-
-        setGeoCookie = function(position) {
-          var lat, lng;
-          lat = position.coords.latitude;
-          lng = position.coords.longitude;
-          document.cookie = 'lat=' + escape(lat);
-          document.cookie = 'lng=' + escape(lng);
-        };
-
-        getGeoLocation();
-        console.log('done');
-      </script>
-    <% end %>
-<%= console %>
+    <%= get_geolocation(@user) %>

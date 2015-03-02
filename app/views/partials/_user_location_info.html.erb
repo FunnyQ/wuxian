@@ -4,7 +4,9 @@
   <div class="location-list">
     <ul>
       <li>居住地區：<span><%= user.location %></span></li>
-      <li>即時定位：<span>定位中...</span></li>
+      <% if user == current_user %>
+        <li>即時定位：<span><%= render_realtime_location %></span></li>
+      <% end %>
     </ul>
   </div>
 </div>
