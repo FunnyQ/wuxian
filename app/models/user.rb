@@ -48,6 +48,8 @@ class User < ActiveRecord::Base
   has_many :albums, dependent: :destroy
   has_many :photos, through: :albums
 
+  acts_as_voter
+
   extend OmniauthCallbacks
 
   def bind_service(response)
