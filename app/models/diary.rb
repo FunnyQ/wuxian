@@ -15,7 +15,7 @@
 
 class Diary < ActiveRecord::Base
   belongs_to :user
-
+  acts_as_votable
   mount_uploader :featured_img, DiaryFeaturedUploader
 
   validates :title, presence: true
