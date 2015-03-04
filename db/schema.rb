@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304231320) do
+ActiveRecord::Schema.define(version: 20150304232727) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -53,16 +53,30 @@ ActiveRecord::Schema.define(version: 20150304231320) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "diaries", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.string   "title",        limit: 255
-    t.text     "content",      limit: 65535
-    t.string   "featured_img", limit: 255
-    t.integer  "viewed",       limit: 4,     default: 1, null: false
-    t.string   "location",     limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                 limit: 4
+    t.string   "title",                   limit: 255
+    t.text     "content",                 limit: 65535
+    t.string   "featured_img",            limit: 255
+    t.integer  "viewed",                  limit: 4,     default: 1,   null: false
+    t.string   "location",                limit: 255
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.integer  "cached_votes_total",      limit: 4,     default: 0
+    t.integer  "cached_votes_score",      limit: 4,     default: 0
+    t.integer  "cached_votes_up",         limit: 4,     default: 0
+    t.integer  "cached_votes_down",       limit: 4,     default: 0
+    t.integer  "cached_weighted_score",   limit: 4,     default: 0
+    t.integer  "cached_weighted_total",   limit: 4,     default: 0
+    t.float    "cached_weighted_average", limit: 24,    default: 0.0
   end
 
+  add_index "diaries", ["cached_votes_down"], name: "index_diaries_on_cached_votes_down", using: :btree
+  add_index "diaries", ["cached_votes_score"], name: "index_diaries_on_cached_votes_score", using: :btree
+  add_index "diaries", ["cached_votes_total"], name: "index_diaries_on_cached_votes_total", using: :btree
+  add_index "diaries", ["cached_votes_up"], name: "index_diaries_on_cached_votes_up", using: :btree
+  add_index "diaries", ["cached_weighted_average"], name: "index_diaries_on_cached_weighted_average", using: :btree
+  add_index "diaries", ["cached_weighted_score"], name: "index_diaries_on_cached_weighted_score", using: :btree
+  add_index "diaries", ["cached_weighted_total"], name: "index_diaries_on_cached_weighted_total", using: :btree
   add_index "diaries", ["user_id"], name: "index_diaries_on_user_id", using: :btree
 
   create_table "guestbooks", force: :cascade do |t|
