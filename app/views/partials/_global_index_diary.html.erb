@@ -10,8 +10,8 @@
     <!-- diary info -->
     <div class="diary-info-wrapper">
       <div class="diary-baku gold-baku">
-        <div class="baku">爆</div>
-        <span class="number"><%= diary.viewed %></span>
+        <div class="baku">推</div>
+        <span class="number"><%= diary.cached_votes_score %></span>
       </div>
       <%= link_to user_diary_path(user, diary) do %>
         <h4 class="diary-title"><%= diary.title %></h4>
