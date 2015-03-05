@@ -9,9 +9,9 @@
 
     <!-- diary info -->
     <div class="diary-info-wrapper">
-      <div class="diary-baku gold-baku">
-        <div class="baku">爆</div>
-        <span class="number"><%= diary.viewed %></span>
+      <div class="diary-baku <%= get_baku_color(diary) %>">
+        <div class="baku"><%= get_baku_or_push(diary) %></div>
+        <span class="number"><%= get_baku_number(diary) %></span>
       </div>
       <%= link_to user_diary_path(user, diary) do %>
         <h4 class="diary-title"><%= diary.title %></h4>
