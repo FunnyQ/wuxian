@@ -43,4 +43,44 @@ module Users::DiariesHelper
   def render_diary_content(diary)
     simple_format(diary.content)
   end
+
+  def get_baku_number(diary)
+    votes = diary.cached_votes_score
+    return votes if votes < 1000
+    k_votes = votes/1000
+    "#{k_votes} K"
+  end
+
+  def get_baku_or_push(diary)
+    votes = diary.cached_votes_score
+    return "推" if votes < 1000
+    "爆"
+  end
+
+  def get_baku_color(diary)
+    case diary.cached_votes_score
+    when 0..100
+      'white-baku'
+    when 101..500
+      'green-baku'
+    when 501..1000
+      'blue-baku'
+    when 1001..2500
+      'yellow-baku'
+    when 2501..5000
+      'bluegreen-baku'
+    when 5001..7500
+      'purple-baku'
+    when 7501..10000
+      'pink-baku'
+    when 10001..25000
+      'orange-baku'
+    when 25001..50000
+      'red-baku'
+    when 50001..75000
+      'silver-baku'
+    else
+      'gold-baku'
+    end
+  end
 end

@@ -2,9 +2,9 @@
 <div class="user-diary-wrapper" data-no-turbolink="true">
 
   <!-- 推爆等級 -->
-  <div class="user-diary-baku gold-baku">
-    <div class="baku">推</div>
-    <span class="number"><%= diary.cached_votes_score %></span>
+  <div class="user-diary-baku <%= get_baku_color(diary) %>">
+    <div class="baku"><%= get_baku_or_push(diary) %></div>
+    <span class="number"><%= get_baku_number(diary) %></span>
   </div>
 
   <!-- 標題與其他訊息 -->
