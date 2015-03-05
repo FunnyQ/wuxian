@@ -30,6 +30,9 @@
   <div class="user-diary-content">
     <%= render_diary_featured_img(diary) %>
     <%= render_diary_content(diary) %>
+    <%= link_to voteup_user_diary_path, method: :post, class: "pull-right" do %>
+      <i class="fa fa-thumbs-up"></i> 推文
+    <% end %>
   </div>
 
   <%= render partial: "partials/disqus_thread", locals: {object: diary, user: user} %>

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :statuses, module: 'users', only: [:create]
-    resources :diaries, module: 'users'
+    resources :diaries, module: 'users' do
+      member do
+        post '/voteup' => 'diaries#voteup'
+      end
+    end
     resources :albums, module: 'users' do
       member do
         delete '/photos/:photo_id' => 'albums#delete_photo', as: :delete_photo

@@ -1,5 +1,7 @@
 class Users::DiariesController < ApplicationController
 
+  # before_action :authenticate_user!, only: :vote
+
   def index
     @user = User.find(params[:user_id])
     @diaries = @user.diaries.all.recent
@@ -73,6 +75,22 @@ class Users::DiariesController < ApplicationController
     else
       redirect_to root_path
       flash[:error] = "自己的日記自己管！"
+    end
+  end
+
+  def voteup
+    @diary = Diary.find(params[:id])
+    if user_signed_in?
+      @diary.liked_by current_user
+      redirect_to :back
+      if current_user.voted_for? @diary
+        flash[:notice] = "已經推過這篇文章囉！"
+      else
+        flash[:success] = "推文成功！"
+      end
+    else
+      redirect_to :back
+      flash[:error] = "請先登入才能推文！"
     end
   end
 
